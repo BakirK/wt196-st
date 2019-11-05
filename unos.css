@@ -1,0 +1,101 @@
+*{
+	/*box-sizing: border-box;*/
+}
+.okvir{
+	width: 400px;
+	margin: 0 auto;
+}
+.okvir div{
+	background-color: skyblue;
+}
+.meni li{
+	display: inline-block;
+	padding-right: 0.3em;
+}
+.meni a{
+	color: black;
+}
+.meni ul{
+	list-style-type: none;
+	margin-bottom: 0.3em;
+}
+.logo {
+	text-align: center; /*centrira logo na sredinu horizontalno*/
+}
+.logo img {
+	position: relative;
+	width: 24px; /*font je 12px pa kad je
+					 margin menija -1em, 50% slike je preko menija*/
+					 /*Radi samo sa pepsi slikom, za druge slike bi setrebalo prilagoditi*/
+	/*height: 24px;*/ /*height se skalira, posto je 
+						simetricno bude jednako sirini tj 24x24 px*/
+	margin: 0 auto;
+}
+.meni{
+	margin-top: -1em;
+	padding: 0.3em;
+	margin-bottom: 1em;
+	text-decoration-skip-ink: none; /*da underline ne bi prekidao kod slova j y g q*/
+}
+.sadrzaj{
+	display: flex;
+	justify-content: center;
+	padding: 1em;
+	font-size: 12px;
+}
+.tabelaSala {
+	border-collapse: collapse;
+}
+.tabelaSala th, td {
+	padding: 0.3em;
+}
+.first{
+	border-left: none;
+	border-top: none;
+}
+.headerSprat {
+	font-weight:normal;
+	background-color: #B3B3B3;
+	border: 1px solid black;
+	font-size: 15px;
+	height: 2.5em;
+}
+.headerRedni {
+	font-weight:normal;
+	background-color: lightgrey;
+	border: 0.5px solid black;
+	width: 5em;
+}
+.slobodnaSala {
+	background-color: lightgreen;
+	border: 1px solid black;
+	width: 3em;
+}
+.zauzetaSala{
+	background-color: orange;
+	border: 1px solid black;
+	width: 3em;
+}
+.sala{
+	border: 1px solid black;
+	background-color: white;
+	width: 2.5em;
+	height: 3em;
+	
+}
+.kancelarija{
+	border: 1px solid black;
+	background-color: grey;
+	width: 2.5em;
+	height: 3em;
+}
+.sala, .kancelarija, .zauzetaSala, .slobodnaSala {
+	vertical-align: top;
+  	
+}
+#redni {
+	vertical-align: bottom;
+}
+.spratoviBrojevi {
+	text-align: right;
+}
