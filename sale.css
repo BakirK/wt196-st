@@ -24,7 +24,6 @@
 }
 .logo img {
 	position: relative;
-	top 0;
 	width: 24px; /*font je 12px pa kad je
 					 margin menija -1em, 50% slike je preko menija*/
 					 /*Radi samo sa pepsi slikom, za druge slike bi setrebalo prilagoditi*/
@@ -36,7 +35,7 @@
 	margin-top: -1em;
 	padding: 0.3em;
 	margin-bottom: 1em;
-	text-decoration-skip-ink: none; /*da underline ne bi prestao kod slova j y g q*/
+	text-decoration-skip-ink: none; /*da underline ne bi prekidao kod slova j y g q*/
 }
 .sadrzaj{
 	display: flex;
