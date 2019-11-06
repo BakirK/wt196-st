@@ -1,62 +1,40 @@
+@import "meni.css";
 *{
-	/*box-sizing: border-box;*/
-}
-.okvir{
-	width: 400px;
-	margin: 0 auto;
-}
-.okvir div{
-	background-color: skyblue;
-}
-.meni li{
-	display: inline-block;
-	padding-right: 0.3em;
-}
-.meni a{
-	color: black;
-}
-.meni ul{
-	list-style-type: none;
-	margin-bottom: 0.3em;
-}
-.logo {
-	text-align: center; /*centrira logo na sredinu horizontalno*/
-}
-.logo img {
-	position: relative;
-	width: 24px; /*font je 12px pa kad je
-					 margin menija -1em, 50% slike je preko menija*/
-					 /*Radi samo sa pepsi slikom, za druge slike bi setrebalo prilagoditi*/
-	/*height: 24px;*/ /*height se skalira, posto je 
-						simetricno bude jednako sirini tj 24x24 px*/
-	margin: 0 auto;
-}
-.meni{
-	margin-top: -1em;
-	padding: 0.3em;
-	margin-bottom: 1em;
-	text-decoration-skip-ink: none; /*da underline ne bi prekidao kod slova j y g q*/
 }
 .sadrzaj{
 	font-size: 12px;
+	padding-bottom: 0.3em;
+	margin-top: 5px;
 }
 .sadrzaj label {
 	display:inline-block;
     *display: inline;     /* for IE7*/
     zoom:1;              /* for IE7*/
-    text-align: right;
-    width: 100px;
+    text-align: left;
+    width: 30%;
     vertical-align:middle;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 .sadrzaj input {
+	font-size: 12px;
 	display:inline-block;
     *display: inline;     /* for IE7*/
     zoom:1;              /* for IE7*/
-	margin-top: 5px;
-    margin-bottom: 5px;
+	margin-top: 10px;
     vertical-align:middle;
-    margin-left:10px
+    margin-left: 10px;
+    width: 50%;
 }
 .sadrzaj label:after {
 	content: ":";
+}
+@media only screen and (max-width: 600px) {
+  /* za ekrane ispod 600px: */
+  .sadrzaj input {
+  	display: block;
+  }
+  .sadrzaj label {
+  	margin: 15px 0 -5px 10px;
+  }
 }
