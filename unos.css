@@ -11,7 +11,7 @@
     *display: inline;     /* for IE7*/
     zoom:1;              /* for IE7*/
     text-align: left;
-    width: 30%;
+    width: 20%;
     vertical-align:middle;
     margin-left: 10px;
     margin-top: 10px;
@@ -24,7 +24,7 @@
 	margin-top: 10px;
     vertical-align:middle;
     margin-left: 10px;
-    width: 50%;
+    width: 60%;
 }
 .sadrzaj label:after {
 	content: ":";

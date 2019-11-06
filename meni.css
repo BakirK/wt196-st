@@ -5,7 +5,7 @@
   	flex: 1;
 }
 .okvir{
-	max-width: 60%;
+	width: 25em;
 	margin: 0 auto;
 }
 .okvir div{
@@ -15,7 +15,8 @@
 	margin-top: -1em;
 	padding: 0.01em;
 	margin-bottom: 1em;
-	text-decoration-skip-ink: none; /*da underline ne bi prekidao kod slova j y g q*/
+	/*text-decoration-skip-ink: none; /*da underline ne bi prekidao kod slova j y g q*/ 
+	/*validator kaze da ne postoji ovaj property iako postoji i radi?*/
 }
 .meni li{
 	display: inline-block;
@@ -33,17 +34,25 @@
 }
 .logo img {
 	position: relative;
-	width: 24px; /*font je 16px pa kad je
+	width: 12px; /*font je duplo manji pa kad je
 					 margin menija -1em, 50% slike je preko menija*/
-					 /*Radi samo sa pepsi slikom, za druge slike bi setrebalo prilagoditi*/
 	/*height: 24px;*/ /*height se skalira, posto je 
 						simetricno bude jednako sirini tj 24x24 px*/
 	margin: 0 auto;
 }
 @media only screen and (max-width: 600px) {
   /* za ekrane ispod 600px: */
-  .meni li{
-	display: block;
-	padding-bottom: 0.2em;
+    .meni li{
+		display: block;
+		padding-bottom: 0.2em;
+	}
+}
+@media only screen and (min-width: 1024px) {
+  /* za ekrane ispod 600px: */
+    .meni {
+		font-size: 20px;
+	}
+	.logo img {
+		width: 16px;
 	}
 }
