@@ -1,41 +1,6 @@
+@import "meni.css";
 *{
-	/*box-sizing: border-box;*/
-}
-.okvir{
-	width: 400px;
-	margin: 0 auto;
-}
-.okvir div{
-	background-color: skyblue;
-}
-.meni li{
-	display: inline-block;
-	padding-right: 0.3em;
-}
-.meni a{
-	color: black;
-}
-.meni ul{
-	list-style-type: none;
-	margin-bottom: 0.3em;
-}
-.logo {
-	text-align: center; /*centrira logo na sredinu horizontalno*/
-}
-.logo img {
-	position: relative;
-	width: 24px; /*font je 12px pa kad je
-					 margin menija -1em, 50% slike je preko menija*/
-					 /*Radi samo sa pepsi slikom, za druge slike bi setrebalo prilagoditi*/
-	/*height: 24px;*/ /*height se skalira, posto je 
-						simetricno bude jednako sirini tj 24x24 px*/
-	margin: 0 auto;
-}
-.meni{
-	margin-top: -1em;
-	padding: 0.3em;
-	margin-bottom: 1em;
-	text-decoration-skip-ink: none; /*da underline ne bi prekidao kod slova j y g q*/
+	box-sizing: border-box;
 }
 .sadrzaj{
 	display: flex;
@@ -69,24 +34,24 @@
 .slobodnaSala {
 	background-color: lightgreen;
 	border: 1px solid black;
-	width: 3em;
+	width: 3.5em;
 }
 .zauzetaSala{
 	background-color: orange;
 	border: 1px solid black;
-	width: 3em;
+	width: 3.5em;
 }
 .sala{
 	border: 1px solid black;
 	background-color: white;
-	width: 2.5em;
+	width: 3em;
 	height: 3em;
 	
 }
 .kancelarija{
 	border: 1px solid black;
 	background-color: grey;
-	width: 2.5em;
+	width: 3em;
 	height: 3em;
 }
 .sala, .kancelarija, .zauzetaSala, .slobodnaSala {
@@ -98,4 +63,14 @@
 }
 .spratoviBrojevi {
 	text-align: right;
+}
+
+@media only screen and (max-width: 600px) {
+  /* za ekrane ispod 600px: */
+	.headerSprat {
+	display: none;
+	}
+	.headerRedni {
+		display: none;
+	}
 }
