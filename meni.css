@@ -5,7 +5,7 @@
   	flex: 1;
 }
 .okvir{
-	max-width: 25em;
+	max-width: 60%;
 	margin: 0 auto;
 }
 .okvir div{
@@ -13,9 +13,8 @@
 }
 .meni{
 	margin-top: -1em;
-	padding: 0.3em;
+	padding: 0.01em;
 	margin-bottom: 1em;
-	margin-left: 0px;
 	text-decoration-skip-ink: none; /*da underline ne bi prekidao kod slova j y g q*/
 }
 .meni li{
@@ -34,7 +33,7 @@
 }
 .logo img {
 	position: relative;
-	width: 24px; /*font je 12px pa kad je
+	width: 24px; /*font je 16px pa kad je
 					 margin menija -1em, 50% slike je preko menija*/
 					 /*Radi samo sa pepsi slikom, za druge slike bi setrebalo prilagoditi*/
 	/*height: 24px;*/ /*height se skalira, posto je 
