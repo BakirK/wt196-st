@@ -2,11 +2,13 @@
 *{
 	box-sizing: border-box;
 }
+
 .sadrzaj {
 	font-size: 16px;
+    padding-bottom: 0.3em;
 }
 .checkBox {
-	margin-left: 10px;
+	margin-left: 5px;
 	display: inline-block;
   	vertical-align: bottom;
 	margin-top: 10px;
@@ -21,7 +23,7 @@
     text-align: left;
     width: 20%;
     vertical-align:middle;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-top: 10px;
 }
 .input label {
@@ -40,22 +42,78 @@
     zoom:1;              /* for IE7*/
 	margin-top: 10px;
     vertical-align:middle;
-    margin-left: 10px;
-    width: 40%;
+    margin-left: 5px;
+    width: 30%;
 }
 label:after {
 	content: ":";
 }
+.monthIndicator {
+  color: var(--blue-grey-700);
+  text-align: center;
+  font-weight: 500;
+}
+
+
+.dateGrid,
+.dayOfWeek {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+    padding: 5px;
+    margin: 5px;
+}
+.dateGrid div:first-child {
+  grid-column: 5; /*prvi dan ce poceti u 5. koloni, drugi u 6. etc.*/
+}
+
+.calendar {
+    border: 1px solid #41699a;
+    text-align: center;
+    margin: 10px;
+}
+.dayOfWeek div {
+    border: 1px solid #41699a;
+    padding: 5px;
+}
+.dayWrapper {
+    border: 1px solid #41699a;
+}
+.buttonDiv button{
+    width: 100%;
+}
+
+.slobodna {
+    background-color: lightgreen;
+    width: 100%;
+}
+.zauzeta {
+    background-color: lightpink;
+    width: 100%;
+}
+
 
 @media only screen and (max-width: 600px) {
-
+    
+    .dateGrid,
+    .dayOfWeek {
+        display: grid;
+        grid-template-rows: repeat(7, 1fr);
+        grid-gap: 8px;
+        width: 40%;
+        grid-auto-flow: column;
+    }
+    .calendar {
+        width: 52%;   
+    }
+    .dayWrapper {
+        margin: 0.5em;
+        width: 80%;
+    }
+    .dayOfWeek {
+        display: none;
+    }
+    .dateGrid div:first-child {
+      grid-column: 1; /*prvi dan ce poceti u 5. koloni, drugi u 6. etc.*/
+    }
 }
-
-@media only screen and (min-width: 768px) {
-
-}
-@media only screen and (min-width: 1024px) {
-
-}
-
-
