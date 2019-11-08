@@ -84,7 +84,7 @@ label:after {
 }
 
 .slobodna {
-    background-color: #4CAF50;;
+    background-color: green;
     width: 100%;
 }
 .zauzeta {
@@ -167,7 +167,6 @@ label:after {
 
 
 @media only screen and (max-width: 600px) {
-    
     .dateGrid,
     .dayOfWeek {
         display: grid;
@@ -188,5 +187,11 @@ label:after {
     }
     .dateGrid div:first-child {
       grid-column: 1; /*prvi dan ce poceti u 5. koloni, drugi u 6. etc.*/
+    }
+    .next {
+        float: left;
+    }
+    .buttons button {
+        width: 24%;
     }
 }
