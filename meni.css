@@ -1,32 +1,35 @@
-.flex{ /*kad je ekran preuzak, granica prozora ce ici
+.flex { /*kad je ekran preuzak, granica prozora ce ici
 		 preko lemenata i sakriti ih*/
 	overflow-x: hidden;
   	overflow-y: auto;
   	flex: 1;
 }
-.okvir{
-	width: 25em;
+.okvir {
+	width: 35em;
 	margin: 0 auto;
 }
-.okvir div{
+.okvir div:not(.slobodna):not(.zauzeta){
 	background-color: skyblue;
 }
-.meni{
+.meni {
 	margin-top: -1em;
 	padding: 0.01em;
 	margin-bottom: 1em;
+	text-align: center;
 	/*text-decoration-skip-ink: none; /*da underline ne bi prekidao kod slova j y g q*/ 
 	/*validator kaze da ne postoji ovaj property iako postoji i radi?*/
 }
-.meni li{
+.meni li {
 	display: inline-block;
 	padding-right: 0.3em;
+	padding-bottom: 0.2em;
 }
-.meni a{
+.meni a {
 	color: black;
 }
-.meni ul{
+.meni ul {
 	list-style-type: none;
+	padding: 0;
 	margin-bottom: 0.3em;
 }
 .logo {
@@ -34,7 +37,7 @@
 }
 .logo img {
 	position: relative;
-	width: 12px; /*font je duplo manji pa kad je
+	width: 24px; /*font je duplo manji pa kad je
 					 margin menija -1em, 50% slike je preko menija*/
 	/*height: 24px;*/ /*height se skalira, posto je 
 						simetricno bude jednako sirini tj 24x24 px*/
@@ -44,15 +47,11 @@
   /* za ekrane ispod 600px: */
     .meni li{
 		display: block;
-		padding-bottom: 0.2em;
+	}
+	.meni {
+		text-align: left;
+		padding-left: 0.6em;
 	}
 }
 @media only screen and (min-width: 1024px) {
-  /* za ekrane ispod 600px: */
-    .meni {
-		font-size: 20px;
-	}
-	.logo img {
-		width: 16px;
-	}
 }
