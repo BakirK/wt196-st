@@ -6,7 +6,7 @@
 	display: flex;
 	justify-content: center;
 	padding: 1em;
-	font-size: 12px;
+	font-size: 16px;
 }
 .tabelaSala {
 	border-collapse: collapse;
@@ -22,7 +22,7 @@
 	font-weight:normal;
 	background-color: #B3B3B3;
 	border: 1px solid black;
-	font-size: 15px;
+	font-size: 19px;
 	height: 2.5em;
 }
 .headerRedni {
@@ -72,5 +72,8 @@
 	}
 	.headerRedni {
 		display: none;
+	}
+	.sadrzaj{
+		justify-content: left;
 	}
 }

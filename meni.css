@@ -9,7 +9,7 @@
 	margin: 0 auto;
 }
 .okvir div:not(.slobodna):not(.zauzeta){
-	background-color: skyblue;
+	background-color: #7FDBFF;
 }
 .meni {
 	margin-top: -1em;
@@ -52,6 +52,4 @@
 		text-align: left;
 		padding-left: 0.6em;
 	}
-}
-@media only screen and (min-width: 1024px) {
 }
