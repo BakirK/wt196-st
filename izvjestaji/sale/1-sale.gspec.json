@@ -1,0 +1,495 @@
+{
+  "testId" : "1-sale.gspec",
+  "name" : "sale.gspec",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Mutation test",
+      "status" : "info",
+      "nodes" : [ {
+        "name" : "check  sale.gspec --url http://localhost/sale.html --size 1024x768 --offset 5 --htmlreport izvjestaji/sale",
+        "status" : "info",
+        "nodes" : [ {
+          "name" : "Check layout: sale.gspec included tags: ",
+          "status" : "info",
+          "time" : 1573425725785,
+          "sections" : [ {
+            "name" : "Meni section",
+            "place" : {
+              "filePath" : "sale.gspec",
+              "lineNumber" : 11
+            },
+            "objects" : [ {
+              "name" : "logo.logoImg",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "sale.gspec",
+                  "lineNumber" : 17
+                },
+                "name" : "inside logo 0px top, 484px left, 484px right, 4px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "484px",
+                  "realDistance" : "484px"
+                }, {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "484px",
+                  "realDistance" : "484px"
+                }, {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "4px",
+                  "realDistance" : "4px"
+                } ],
+                "highlight" : [ "logo.logoImg", "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "sale.gspec",
+                  "lineNumber" : 23
+                },
+                "name" : "above okvir -12px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "-12px",
+                  "realDistance" : "-12px"
+                } ],
+                "highlight" : [ "logo.logoImg", "okvir" ]
+              } ]
+            }, {
+              "name" : "meni.lista",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "sale.gspec",
+                  "lineNumber" : 26
+                },
+                "name" : "inside meni 16px top, 0px left, 0px right, 5px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                }, {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                } ],
+                "highlight" : [ "meni.lista", "meni" ]
+              } ]
+            }, {
+              "name" : "meni",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "sale.gspec",
+                  "lineNumber" : 30
+                },
+                "name" : "inside okvir 0px top",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "meni", "okvir" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "sale.gspec",
+                  "lineNumber" : 35
+                },
+                "name" : "above sadrzaj 16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                } ],
+                "highlight" : [ "meni", "sadrzaj" ]
+              } ]
+            }, {
+              "name" : "okvir",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "sale.gspec",
+                  "lineNumber" : 37
+                },
+                "name" : "inside flex 12px top, 216px left, 216px right, 0px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "12px",
+                  "realDistance" : "12px"
+                }, {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "216px",
+                  "realDistance" : "216px"
+                }, {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "216px",
+                  "realDistance" : "216px"
+                }, {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "okvir", "flex" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "sale.gspec",
+                  "lineNumber" : 38
+                },
+                "name" : "below logo -16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "-16px",
+                  "realDistance" : "-16px"
+                } ],
+                "highlight" : [ "okvir", "logo" ]
+              } ]
+            }, {
+              "name" : "sadrzaj",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "sale.gspec",
+                  "lineNumber" : 44
+                },
+                "name" : "inside okvir 58px top, 0px left, 0px right, 0px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "58px",
+                  "realDistance" : "58px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "sadrzaj", "okvir" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "sale.gspec",
+                  "lineNumber" : 45
+                },
+                "name" : "below meni 16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                } ],
+                "highlight" : [ "sadrzaj", "meni" ]
+              } ]
+            }, {
+              "name" : "sadrzaj.tabela",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "sale.gspec",
+                  "lineNumber" : 49
+                },
+                "name" : "inside sadrzaj 16px top, 108px left, 108px right, 15px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sadrzaj.tabela",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj.tabela",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "108px",
+                  "realDistance" : "108px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj.tabela",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "108px",
+                  "realDistance" : "108px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj.tabela",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "15px",
+                  "realDistance" : "15px"
+                } ],
+                "highlight" : [ "sadrzaj.tabela", "sadrzaj" ]
+              } ]
+            } ]
+          } ],
+          "objects" : {
+            "meni" : {
+              "area" : [ 224, 20, 560, 42 ]
+            },
+            "logo.logoImg" : {
+              "area" : [ 492, 8, 24, 24 ]
+            },
+            "flex" : {
+              "area" : [ 8, 8, 992, 637 ]
+            },
+            "logo" : {
+              "area" : [ 8, 8, 992, 28 ]
+            },
+            "okvir" : {
+              "area" : [ 224, 20, 560, 625 ]
+            },
+            "meni.lista" : {
+              "area" : [ 224, 36, 560, 21 ]
+            },
+            "sadrzaj" : {
+              "area" : [ 224, 78, 560, 567 ]
+            },
+            "sadrzaj.tabela" : {
+              "area" : [ 332, 94, 344, 536 ]
+            }
+          },
+          "screenshot" : "layout-1-screenshot.png",
+          "type" : "layout"
+        }, {
+          "name" : "Mutation testing: sale.gspec included tags: ",
+          "status" : "info",
+          "time" : 1573425725785,
+          "mutationReport" : {
+            "objectMutationStatistics" : {
+              "meni" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "logo.logoImg" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "flex" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "logo" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "okvir" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "meni.lista" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "sadrzaj" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "sadrzaj.tabela" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              }
+            },
+            "totalPassed" : 80,
+            "totalFailed" : 0,
+            "totalMutations" : 80,
+            "failedRatio" : 0.0
+          },
+          "type" : "mutation"
+        } ],
+        "time" : 1573425723726,
+        "type" : "node"
+      } ],
+      "time" : 1573425719863,
+      "type" : "node"
+    } ]
+  }
+}
