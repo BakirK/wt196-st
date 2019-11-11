@@ -170,7 +170,6 @@ label:after {
     .dateGrid,
     .dayOfWeek {
         display: grid;
-        grid-auto-columns: 1;
         grid-gap: 8px;
         width: 30%;
         grid-auto-flow: column;
