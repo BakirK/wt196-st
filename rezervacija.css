@@ -2,7 +2,6 @@
 *{
 	box-sizing: border-box;
 }
-
 .sadrzaj {
 	font-size: 16px;
     padding-bottom: 0.3em;
@@ -59,9 +58,10 @@ label:after {
 .dayOfWeek {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    padding: 3px;
     grid-gap: 10px;
-    padding: 5px;
     margin: 5px;
+    vertical-align: middle;
 }
 .dateGrid div:first-child {
   grid-column: 5; /*prvi dan ce poceti u 5. koloni, drugi u 6. etc.*/
@@ -170,23 +170,40 @@ label:after {
     .dateGrid,
     .dayOfWeek {
         display: grid;
-        grid-template-rows: repeat(7, 1fr);
+        grid-auto-columns: 1;
         grid-gap: 8px;
-        width: 40%;
+        width: 30%;
         grid-auto-flow: column;
+        margin: 0.1em;
+        float: left;
     }
-    .calendar {
-        width: 52%;   
-    }
-    .dayWrapper {
-        margin: 0.5em;
-        width: 80%;
+    .dateGrid {
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-columns: 230%;
+        padding-left: 20px;
     }
     .dayOfWeek {
-        display: none;
+      grid-template-columns: 100%;
+      grid-template-rows: repeat(7, 1fr);
+      width: 40%;
+    }
+    .calendar {
+      width: 52%;
+      overflow: hidden;
+    }
+    .dayWrapper {
+        width: 100%;
+        height: 40px;
     }
     .dateGrid div:first-child {
-      grid-column: 1; /*prvi dan ce poceti u 5. koloni, drugi u 6. etc.*/
+      grid-column-start: 1;
+      grid-row-start: span 4;
+    }
+    .fake {
+      display: block;
+    }
+    .dayOfWeek div {
+      height: 40px;
     }
     .next {
         float: left;
