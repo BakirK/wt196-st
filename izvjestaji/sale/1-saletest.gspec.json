@@ -1,0 +1,155 @@
+{
+  "testId" : "1-saletest.gspec",
+  "name" : "saleTest.gspec",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Mutation test",
+      "status" : "info",
+      "nodes" : [ {
+        "name" : "check  saleTest.gspec --url http://localhost/sale.html --size 1024x768 --offset 5 --htmlreport izvjestaji/sale",
+        "status" : "info",
+        "nodes" : [ {
+          "name" : "Check layout: saleTest.gspec included tags: ",
+          "status" : "error",
+          "time" : 1573510237001,
+          "sections" : [ {
+            "name" : "Meni section",
+            "place" : {
+              "filePath" : "saleTest.gspec",
+              "lineNumber" : 11
+            },
+            "objects" : [ {
+              "name" : "logo.logoImg",
+              "specs" : [ {
+                "status" : "error",
+                "place" : {
+                  "filePath" : "saleTest.gspec",
+                  "lineNumber" : 17
+                },
+                "name" : "inside logo 0px top, 484px left, 484px right, 4px bottom",
+                "errors" : [ "\"logo.logoImg\" is absent on page" ],
+                "highlight" : [ ]
+              }, {
+                "status" : "error",
+                "place" : {
+                  "filePath" : "saleTest.gspec",
+                  "lineNumber" : 23
+                },
+                "name" : "above okvir -12px",
+                "errors" : [ "\"logo.logoImg\" is absent on page" ],
+                "highlight" : [ ]
+              } ]
+            }, {
+              "name" : "meni.lista",
+              "specs" : [ {
+                "status" : "error",
+                "place" : {
+                  "filePath" : "saleTest.gspec",
+                  "lineNumber" : 26
+                },
+                "name" : "inside meni 16px top, 0px left, 0px right, 5px bottom",
+                "errors" : [ "\"meni.lista\" is absent on page" ],
+                "highlight" : [ ]
+              } ]
+            }, {
+              "name" : "meni",
+              "specs" : [ {
+                "status" : "error",
+                "place" : {
+                  "filePath" : "saleTest.gspec",
+                  "lineNumber" : 30
+                },
+                "name" : "inside okvir 0px top",
+                "errors" : [ "\"meni\" is absent on page" ],
+                "highlight" : [ ]
+              }, {
+                "status" : "error",
+                "place" : {
+                  "filePath" : "saleTest.gspec",
+                  "lineNumber" : 35
+                },
+                "name" : "above sadrzaj 16px",
+                "errors" : [ "\"meni\" is absent on page" ],
+                "highlight" : [ ]
+              } ]
+            }, {
+              "name" : "okvir",
+              "specs" : [ {
+                "status" : "error",
+                "place" : {
+                  "filePath" : "saleTest.gspec",
+                  "lineNumber" : 37
+                },
+                "name" : "inside flex 12px top, 216px left, 216px right, 0px bottom",
+                "errors" : [ "\"okvir\" is absent on page" ],
+                "highlight" : [ ]
+              }, {
+                "status" : "error",
+                "place" : {
+                  "filePath" : "saleTest.gspec",
+                  "lineNumber" : 38
+                },
+                "name" : "below logo -16px",
+                "errors" : [ "\"okvir\" is absent on page" ],
+                "highlight" : [ ]
+              } ]
+            }, {
+              "name" : "sadrzaj",
+              "specs" : [ {
+                "status" : "error",
+                "place" : {
+                  "filePath" : "saleTest.gspec",
+                  "lineNumber" : 44
+                },
+                "name" : "inside okvir 58px top, 0px left, 0px right, 0px bottom",
+                "errors" : [ "\"sadrzaj\" is absent on page" ],
+                "highlight" : [ ]
+              }, {
+                "status" : "error",
+                "place" : {
+                  "filePath" : "saleTest.gspec",
+                  "lineNumber" : 45
+                },
+                "name" : "below meni 16px",
+                "errors" : [ "\"sadrzaj\" is absent on page" ],
+                "highlight" : [ ]
+              } ]
+            }, {
+              "name" : "sadrzaj.tabela",
+              "specs" : [ {
+                "status" : "error",
+                "place" : {
+                  "filePath" : "saleTest.gspec",
+                  "lineNumber" : 49
+                },
+                "name" : "inside sadrzaj 16px top, 108px left, 108px right, 15px bottom",
+                "errors" : [ "\"sadrzaj.tabela\" is absent on page" ],
+                "highlight" : [ ]
+              } ]
+            } ]
+          } ],
+          "objects" : { },
+          "screenshot" : "layout-1-screenshot.png",
+          "type" : "layout"
+        }, {
+          "name" : "Mutation testing: saleTest.gspec included tags: ",
+          "status" : "error",
+          "time" : 1573510237001,
+          "mutationReport" : {
+            "objectMutationStatistics" : { },
+            "totalPassed" : 0,
+            "totalFailed" : 0,
+            "error" : "Cannot perform mutation testing. There are errors in initial layout validation report",
+            "totalMutations" : 0,
+            "failedRatio" : 0.0
+          },
+          "type" : "mutation"
+        } ],
+        "time" : 1573510234558,
+        "type" : "node"
+      } ],
+      "time" : 1573510223098,
+      "type" : "node"
+    } ]
+  }
+}

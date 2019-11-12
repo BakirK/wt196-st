@@ -1,0 +1,54 @@
+@objects
+	flex #ff
+	logo	#ff .logo
+		logoImg img
+	meni	 #ff .okvir .meni
+		lista ul
+	okvir #ff .okvir
+	sadrzaj #ff .okvir .sadrzaj
+		tabela  table
+
+= Meni section =
+	flex:
+		@on mobile
+			centered horizontally inside screen
+			centered vertically inside screen
+	logo.logoImg:
+		inside logo 0px top, 221px left, 222px right, 4px bottom
+		@on mobile 
+			centered horizontally inside logo
+			centered vertically inside logo
+			width 24px
+			height 24px
+		above okvir -12px
+		
+	meni.lista:
+    	inside meni 16px top, 9px left, 1px right, 5px bottom
+		@on mobile 
+			centered horizontally inside meni
+	meni:
+		inside okvir 0px top
+		@on mobile 
+			centered horizontally inside meni
+			width 560px
+			height 43px
+		above sadrzaj 16px
+	okvir:
+		inside partly flex 12px top, 0px left, -93px right, 0px bottom
+		below logo -16px
+		@on mobile 
+			centered horizontally inside flex
+			centered vertically inside flex
+
+	sadrzaj:
+		inside okvir 143px top, 0px left, 0px right, 0px bottom
+		below meni 16px
+		@on mobile 
+			centered horizontally inside okvir
+	sadrzaj.tabela:
+		inside sadrzaj 16px top, 16px left, 296px right, 15px bottom
+		@on mobile
+			height 536px
+			width 344px
+			centered horizontally inside flex
+			centered vertically inside flex
