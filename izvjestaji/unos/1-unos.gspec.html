@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Galen Test Report</title>
+        <link rel="stylesheet" href="galen-report.css"/>
+        <script src="vue.js"></script>
+        <script src="galen-report.js"></script>
+        <script type="text/javascript">
+var REPORT_DATA = {
+  "testId" : "1-unos.gspec",
+  "name" : "unos.gspec",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Mutation test",
+      "status" : "info",
+      "nodes" : [ {
+        "name" : "check  unos.gspec --url http://localhost/unos.html --size 1024x768 --offset 5 --htmlreport izvjestaji/unos",
+        "status" : "info",
+        "nodes" : [ {
+          "name" : "Check layout: unos.gspec included tags: ",
+          "status" : "info",
+          "time" : 1573554005267,
+          "sections" : [ {
+            "name" : "Meni section",
+            "place" : {
+              "filePath" : "unos.gspec",
+              "lineNumber" : 25
+            },
+            "objects" : [ {
+              "name" : "logo.logoImg",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 31
+                },
+                "name" : "inside logo 0px top, 484px left, 484px right, 4px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "484px",
+                  "realDistance" : "484px"
+                }, {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "484px",
+                  "realDistance" : "484px"
+                }, {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "4px",
+                  "realDistance" : "4px"
+                } ],
+                "highlight" : [ "logo.logoImg", "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 37
+                },
+                "name" : "above okvir -12px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "-12px",
+                  "realDistance" : "-12px"
+                } ],
+                "highlight" : [ "logo.logoImg", "okvir" ]
+              } ]
+            }, {
+              "name" : "meni.lista",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 40
+                },
+                "name" : "inside meni 16px top, 0px left, 0px right, 5px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                }, {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                } ],
+                "highlight" : [ "meni.lista", "meni" ]
+              } ]
+            }, {
+              "name" : "meni",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 44
+                },
+                "name" : "inside okvir 0px top",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "meni", "okvir" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 49
+                },
+                "name" : "above sadrzaj 16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                } ],
+                "highlight" : [ "meni", "sadrzaj" ]
+              } ]
+            }, {
+              "name" : "okvir",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 51
+                },
+                "name" : "inside flex 12px top, 216px left, 216px right, 0px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "12px",
+                  "realDistance" : "12px"
+                }, {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "216px",
+                  "realDistance" : "216px"
+                }, {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "216px",
+                  "realDistance" : "216px"
+                }, {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "okvir", "flex" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 52
+                },
+                "name" : "below logo -16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "-16px",
+                  "realDistance" : "-16px"
+                } ],
+                "highlight" : [ "okvir", "logo" ]
+              } ]
+            }, {
+              "name" : "sadrzaj",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 58
+                },
+                "name" : "inside okvir 58px top, 0px left, 0px right, 0px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "58px",
+                  "realDistance" : "58px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "sadrzaj", "okvir" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 59
+                },
+                "name" : "below meni 16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                } ],
+                "highlight" : [ "sadrzaj", "meni" ]
+              } ]
+            }, {
+              "name" : "forma",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 63
+                },
+                "name" : "inside sadrzaj 0px top, 0px left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "forma", "sadrzaj" ]
+              } ]
+            }, {
+              "name" : "naziv",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 67
+                },
+                "name" : "inside forma 13px top, 10px left, 438px right, 151px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "naziv",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "13px",
+                  "realDistance" : "13px"
+                }, {
+                  "from" : {
+                    "object" : "naziv",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "10px",
+                  "realDistance" : "10px"
+                }, {
+                  "from" : {
+                    "object" : "naziv",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "438px",
+                  "realDistance" : "438px"
+                }, {
+                  "from" : {
+                    "object" : "naziv",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "151px",
+                  "realDistance" : "151px"
+                } ],
+                "highlight" : [ "naziv", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 68
+                },
+                "name" : "left-of nazivInput 14px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "naziv",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "nazivInput",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "14px",
+                  "realDistance" : "14px"
+                } ],
+                "highlight" : [ "naziv", "nazivInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 69
+                },
+                "name" : "aligned vertically left broj",
+                "highlight" : [ "naziv", "broj" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 70
+                },
+                "name" : "aligned horizontally centered nazivInput",
+                "highlight" : [ "naziv", "nazivInput" ]
+              } ]
+            }, {
+              "name" : "broj",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 72
+                },
+                "name" : "inside forma 47px top, 10px left, 438px right, 117px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "broj",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "47px",
+                  "realDistance" : "47px"
+                }, {
+                  "from" : {
+                    "object" : "broj",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "10px",
+                  "realDistance" : "10px"
+                }, {
+                  "from" : {
+                    "object" : "broj",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "438px",
+                  "realDistance" : "438px"
+                }, {
+                  "from" : {
+                    "object" : "broj",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "117px",
+                  "realDistance" : "117px"
+                } ],
+                "highlight" : [ "broj", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 73
+                },
+                "name" : "left-of brojInput 14px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "broj",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "brojInput",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "14px",
+                  "realDistance" : "14px"
+                } ],
+                "highlight" : [ "broj", "brojInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 74
+                },
+                "name" : "aligned vertically left osoba",
+                "highlight" : [ "broj", "osoba" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 75
+                },
+                "name" : "aligned horizontally centered brojInput",
+                "highlight" : [ "broj", "brojInput" ]
+              } ]
+            }, {
+              "name" : "osoba",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 77
+                },
+                "name" : "inside forma 78px top, 10px left, 438px right, 68px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "osoba",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "78px",
+                  "realDistance" : "78px"
+                }, {
+                  "from" : {
+                    "object" : "osoba",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "10px",
+                  "realDistance" : "10px"
+                }, {
+                  "from" : {
+                    "object" : "osoba",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "438px",
+                  "realDistance" : "438px"
+                }, {
+                  "from" : {
+                    "object" : "osoba",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "68px",
+                  "realDistance" : "68px"
+                } ],
+                "highlight" : [ "osoba", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 78
+                },
+                "name" : "left-of osobaInput 14px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "osoba",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "osobaInput",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "14px",
+                  "realDistance" : "14px"
+                } ],
+                "highlight" : [ "osoba", "osobaInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 79
+                },
+                "name" : "aligned vertically left sprat",
+                "highlight" : [ "osoba", "sprat" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 80
+                },
+                "name" : "aligned horizontally centered osobaInput",
+                "highlight" : [ "osoba", "osobaInput" ]
+              } ]
+            }, {
+              "name" : "sprat",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 82
+                },
+                "name" : "inside forma 127px top, 10px left, 438px right, 37px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sprat",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "127px",
+                  "realDistance" : "127px"
+                }, {
+                  "from" : {
+                    "object" : "sprat",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "10px",
+                  "realDistance" : "10px"
+                }, {
+                  "from" : {
+                    "object" : "sprat",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "438px",
+                  "realDistance" : "438px"
+                }, {
+                  "from" : {
+                    "object" : "sprat",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "37px",
+                  "realDistance" : "37px"
+                } ],
+                "highlight" : [ "sprat", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 83
+                },
+                "name" : "left-of spratInput 14px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sprat",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "spratInput",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "14px",
+                  "realDistance" : "14px"
+                } ],
+                "highlight" : [ "sprat", "spratInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 84
+                },
+                "name" : "aligned vertically left unos",
+                "highlight" : [ "sprat", "unos" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 85
+                },
+                "name" : "aligned horizontally centered spratInput",
+                "highlight" : [ "sprat", "spratInput" ]
+              } ]
+            }, {
+              "name" : "unos",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 87
+                },
+                "name" : "inside forma 161px top, 10px left, 438px right, 3px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "unos",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "161px",
+                  "realDistance" : "161px"
+                }, {
+                  "from" : {
+                    "object" : "unos",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "10px",
+                  "realDistance" : "10px"
+                }, {
+                  "from" : {
+                    "object" : "unos",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "438px",
+                  "realDistance" : "438px"
+                }, {
+                  "from" : {
+                    "object" : "unos",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "3px",
+                  "realDistance" : "3px"
+                } ],
+                "highlight" : [ "unos", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 88
+                },
+                "name" : "left-of unosInput 14px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "unos",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "unosInput",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "14px",
+                  "realDistance" : "14px"
+                } ],
+                "highlight" : [ "unos", "unosInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 89
+                },
+                "name" : "aligned horizontally centered unosInput",
+                "highlight" : [ "unos", "unosInput" ]
+              } ]
+            }, {
+              "name" : "nazivInput",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 91
+                },
+                "name" : "aligned vertically left brojInput",
+                "highlight" : [ "nazivInput", "brojInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 92
+                },
+                "name" : "right-of forma -424px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "nazivInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "-424px",
+                  "realDistance" : "-424px"
+                } ],
+                "highlight" : [ "nazivInput", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 93
+                },
+                "name" : "width 200px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "nazivInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "nazivInput",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "200px",
+                  "realDistance" : "200px"
+                } ],
+                "highlight" : [ "nazivInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 94
+                },
+                "name" : "height 24px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "nazivInput",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "nazivInput",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "24px",
+                  "realDistance" : "24px"
+                } ],
+                "highlight" : [ "nazivInput" ]
+              } ]
+            }, {
+              "name" : "brojInput",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 96
+                },
+                "name" : "aligned vertically left osobaInput",
+                "highlight" : [ "brojInput", "osobaInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 97
+                },
+                "name" : "right-of forma -424px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "brojInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "-424px",
+                  "realDistance" : "-424px"
+                } ],
+                "highlight" : [ "brojInput", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 98
+                },
+                "name" : "width 200px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "brojInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "brojInput",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "200px",
+                  "realDistance" : "200px"
+                } ],
+                "highlight" : [ "brojInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 99
+                },
+                "name" : "height 24px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "brojInput",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "brojInput",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "24px",
+                  "realDistance" : "24px"
+                } ],
+                "highlight" : [ "brojInput" ]
+              } ]
+            }, {
+              "name" : "osobaInput",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 101
+                },
+                "name" : "aligned vertically left spratInput",
+                "highlight" : [ "osobaInput", "spratInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 102
+                },
+                "name" : "right-of forma -424px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "osobaInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "-424px",
+                  "realDistance" : "-424px"
+                } ],
+                "highlight" : [ "osobaInput", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 103
+                },
+                "name" : "width 200px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "osobaInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "osobaInput",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "200px",
+                  "realDistance" : "200px"
+                } ],
+                "highlight" : [ "osobaInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 104
+                },
+                "name" : "height 24px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "osobaInput",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "osobaInput",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "24px",
+                  "realDistance" : "24px"
+                } ],
+                "highlight" : [ "osobaInput" ]
+              } ]
+            }, {
+              "name" : "spratInput",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 106
+                },
+                "name" : "aligned vertically left unosInput",
+                "highlight" : [ "spratInput", "unosInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 107
+                },
+                "name" : "right-of forma -424px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "spratInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "-424px",
+                  "realDistance" : "-424px"
+                } ],
+                "highlight" : [ "spratInput", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 108
+                },
+                "name" : "width 200px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "spratInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "spratInput",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "200px",
+                  "realDistance" : "200px"
+                } ],
+                "highlight" : [ "spratInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 109
+                },
+                "name" : "height 24px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "spratInput",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "spratInput",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "24px",
+                  "realDistance" : "24px"
+                } ],
+                "highlight" : [ "spratInput" ]
+              } ]
+            }, {
+              "name" : "unosInput",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 111
+                },
+                "name" : "right-of forma -424px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "unosInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "-424px",
+                  "realDistance" : "-424px"
+                } ],
+                "highlight" : [ "unosInput", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 112
+                },
+                "name" : "width 196px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "unosInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "unosInput",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "196px",
+                  "realDistance" : "196px"
+                } ],
+                "highlight" : [ "unosInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 113
+                },
+                "name" : "height 24px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "unosInput",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "unosInput",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "24px",
+                  "realDistance" : "24px"
+                } ],
+                "highlight" : [ "unosInput" ]
+              } ]
+            } ]
+          } ],
+          "objects" : {
+            "meni" : {
+              "area" : [ 224, 20, 560, 42 ]
+            },
+            "sprat" : {
+              "area" : [ 234, 205, 112, 18 ]
+            },
+            "broj" : {
+              "area" : [ 234, 125, 112, 18 ]
+            },
+            "logo.logoImg" : {
+              "area" : [ 492, 8, 24, 24 ]
+            },
+            "naziv" : {
+              "area" : [ 234, 91, 112, 18 ]
+            },
+            "unos" : {
+              "area" : [ 234, 239, 112, 18 ]
+            },
+            "forma" : {
+              "area" : [ 224, 78, 560, 182 ]
+            },
+            "okvir" : {
+              "area" : [ 224, 20, 560, 245 ]
+            },
+            "sadrzaj" : {
+              "area" : [ 224, 78, 560, 187 ]
+            },
+            "flex" : {
+              "area" : [ 8, 8, 992, 257 ]
+            },
+            "nazivInput" : {
+              "area" : [ 360, 88, 200, 24 ]
+            },
+            "osoba" : {
+              "area" : [ 234, 156, 112, 36 ]
+            },
+            "logo" : {
+              "area" : [ 8, 8, 992, 28 ]
+            },
+            "brojInput" : {
+              "area" : [ 360, 122, 200, 24 ]
+            },
+            "osobaInput" : {
+              "area" : [ 360, 162, 200, 24 ]
+            },
+            "spratInput" : {
+              "area" : [ 360, 202, 200, 24 ]
+            },
+            "unosInput" : {
+              "area" : [ 360, 236, 196, 24 ]
+            },
+            "meni.lista" : {
+              "area" : [ 224, 36, 560, 21 ]
+            }
+          },
+          "screenshot" : "layout-1-screenshot.png",
+          "type" : "layout"
+        }, {
+          "name" : "Mutation testing: unos.gspec included tags: ",
+          "status" : "info",
+          "time" : 1573554005267,
+          "mutationReport" : {
+            "objectMutationStatistics" : {
+              "meni" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "sprat" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "broj" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "logo.logoImg" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "naziv" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "unos" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "forma" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "okvir" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "sadrzaj" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "flex" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "nazivInput" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "osoba" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "logo" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "brojInput" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "osobaInput" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "spratInput" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "unosInput" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "meni.lista" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              }
+            },
+            "totalPassed" : 180,
+            "totalFailed" : 0,
+            "totalMutations" : 180,
+            "failedRatio" : 0.0
+          },
+          "type" : "mutation"
+        } ],
+        "time" : 1573553994730,
+        "type" : "node"
+      } ],
+      "time" : 1573553983452,
+      "type" : "node"
+    } ]
+  }
+};
+        </script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="top-menu">
+                <a class="link" href="report.html">Back to Test Overview</a>
+                <span class="link" v-on:click="expandAll()">Expand All</span>
+                <span class="link" v-on:click="collapseAll()">Collapse All</span>
+                <span class="link" v-on:click="expandOnlyErrors()">Expand Errors</span>
+            </div>
+            <div v-for="node in reportData.report.nodes">
+                <report-node v-if="node.type === 'node'" v-bind:node="node"></report-node>
+                <div class="node-text" v-if="node.type === 'text'">
+                    {{node.name}}
+                </div>
+                <layout-report v-if="node.type === 'layout'" v-bind:layout="node"></layout-report>
+                <mutation-report v-if="node.type === 'mutation'" v-bind:report="node"></mutation-report>
+            </div>
+        </div>
+
+        <template id="tpl-report-node">
+            <div class="report-node">
+                <div class="node-line" v-bind:class="['status-' + node.status]">
+                    <span class="node-time">{{node.time | formatTime}}</span>
+                    <span class="node-label"
+                        v-on:click="toggleReportNode(node)"
+                        v-bind:class="['status-' + node.status, node.expanded ? 'expanded': 'collapsed', 'contains-children-' + node.hasChildren]"
+                        >{{node.status}}</span>
+                    <span class="node-title">{{node.name}}</span>
+                    <span class="node-extras-link"
+                        v-if="node.extras"
+                        v-on:click="showNodeExtrasPopup(node.extras)"
+                        >extras</span>
+                </div>
+                <ul class="node-attachments" v-if="node.attachments && node.attachments.length > 0">
+                    <li v-for="attachment in node.attachments">
+                        <a class="icon-sprite-before node-attachment" v-bind:href="attachment">{{attachment}}</a>
+                    </li>
+                </ul>
+                <div class="child-nodes" v-if="node.type === 'node'" v-bind:class="{'child-nodes-expanded': node.expanded}">
+                    <div class="stacktrace" v-if="node.stacktrace">{{node.stacktrace}}</div>
+                    <div v-for="childNode in node.nodes">
+                        <report-node v-if="childNode.type === 'node'" v-bind:node="childNode"></report-node>
+                        <div class="node-text" v-if="childNode.type === 'text'">
+                            {{childNode.name}}
+                        </div>
+                        <layout-report v-if="childNode.type === 'layout'" v-bind:layout="childNode" v-bind:isSubLayout="false"></layout-report>
+                        <mutation-report v-if="childNode.type === 'mutation'" v-bind:report="childNode"></mutation-report>
+                    </div>
+                </div>
+                <div class="extras-popup popup-wrapper" v-if="extrasPopup.show">
+                    <div class="popup-shadow" v-on:click="extrasPopup.show = false"> </div>
+                    <div class="popup-container" style="top: 30px;">
+                        <div class="popup-body">
+                            <table class="extras-table">
+                                <tbody>
+                                    <tr v-for="extrasItem in extrasPopup.extras">
+                                        <td>{{extrasItem.name}}</td>
+                                        <td>
+                                            <div v-if="extrasItem.value.type === 'link'">
+                                                <a class="link" v-bind:href="extrasItem.value.value">{{extrasItem.value.value}}</a>
+                                            </div>
+                                            <div v-else v-if="extrasItem.value.type === 'file'">
+                                                <a class="link" v-bind:href="extrasItem.value.value">{{extrasItem.value.value}}</a>
+                                            </div>
+                                            <div v-else v-if="extrasItem.value.type === 'text'">
+                                                {{extrasItem.value.value}}
+                                            </div>
+                                            <div v-else v-if="extrasItem.value.type === 'image'">
+                                                <a v-bind:href="extrasItem.value.value"><img v-bind:src="extrasItem.value.value"/></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="tpl-mutation-report">
+            <div class="mutation-report">
+                <div class="node-line" v-bind:class="['status-' + report.status]">
+                    <span class="node-time">{{report.time | formatTime }}</span>
+                    <span class="node-label"
+                        v-on:click="toggleReportNode(report)"
+                        v-bind:class="['status-' + report.status, report.expanded ? 'expanded': 'collapsed', 'contains-children-true']"
+                        >MUTATION</span>
+                    <span class="node-title">{{report.name}}</span>
+                </div>
+                <div class="child-nodes" v-bind:class="{'child-nodes-expanded': report.expanded}">
+                    <table class="mutation-table">
+                        <thead>
+                            <tr>
+                                <th v-for="column in tableColumns" v-bind:class="{'sorted-column': sorting.columnField === column.field}">
+                                    <span class="link" v-on:click="sortTable(column)">{{column.name}}</span>
+                                    <span class="sorting-icon"
+                                        v-if="sorting.columnField === column.field"
+                                        v-bind:class="[sorting.order === 1 ? 'sorting-down' : 'sorting-up']"></span>
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="mutation-table-total">
+                                <td> <b>Total</b> </td>
+                                <td class="cell-passed">{{report.mutationReport.totalPassed}}</td>
+                                <td class="cell-failed">{{report.mutationReport.totalFailed}}</td>
+                                <td class="cell-failed">{{report.mutationReport.failedRatio | roundFailedRatio}}%</td>
+                                <td></td>
+                            </tr>
+                            <tr v-for="mutation in mutations">
+                                <td><span class="link" v-on:click="toggleMutationFor(mutation.name)">{{mutation.name}}</span></td>
+                                <td class="cell-passed">{{mutation.passed}}</td>
+                                <td class="cell-failed">{{mutation.failed}}</td>
+                                <td class="cell-failed">{{mutation.failedRatio}}%</td>
+                                <td>
+                                    <div v-if="showFailedMutationsFor === mutation.name">
+                                        All failed mutations:
+                                        <ul>
+                                            <li v-for="mutationText in mutation.failedMutations">{{mutationText}}</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </template>
+
+        <template id="tpl-layout-report">
+            <div class="layout-report">
+                <div class="node-line" v-bind:class="['status-' + layout.status]">
+                    <span class="node-time">{{layout.time | formatTime}}</span>
+                    <span class="node-label"
+                        v-on:click="toggleReportNode(layout)"
+                        v-bind:class="['status-' + layout.status, layout.expanded ? 'expanded': 'collapsed', 'contains-children-' + layout.hasChildren]"
+                        >LAYOUT</span>
+                    <span class="node-title">{{layout.name}}</span>
+                </div>
+                <div class="node-horizontal-menu">
+                    <span class="link" v-on:click="showFailureMap()">Failure Map</span> |
+                    <span class="link" v-on:click="showHeatMap()">Heat Map</span>
+                </div>
+
+                <div class="child-nodes" v-bind:class="{'child-nodes-expanded': layout.expanded}">
+                    <layout-section v-for="section in layout.sections" v-bind:section="section" v-bind:bus="bus" v-bind:layout="layout" @spec-clicked="specClicked"></layout-section>
+                </div>
+
+                <screenshot-popup v-if="screenshotPopup.shown"
+                    v-bind:screenshot="screenshotPopup.screenshotFile"
+                    v-bind:highlight="screenshotPopup.highlightAreas"
+                    v-bind:guides="screenshotPopup.metaGuides"
+                    v-bind:spec="screenshotPopup.spec"
+                    @close="screenshotPopup.shown = false"
+                    ></screenshot-popup>
+            </div>
+        </template>
+
+        <template id="tpl-layout-section">
+            <div class="layout-section" v-bind:class="{'has-failure': section.hasFailure}">
+                <div class="title icon-sprite-before"
+                    v-on:click="toggleReportNode(section)"
+                    v-bind:title="section.place ? section.place.filePath + ':' + section.place.lineNumber : ''"
+                    >{{section.name}}</div>
+                <div class="child-nodes" v-bind:class="{'child-nodes-expanded': section.expanded}">
+                    <layout-section v-for="subSection in section.sections" v-bind:section="subSection" v-bind:bus="bus" v-bind:layout="layout"></layout-section>
+                    <object-node v-for="object in section.objects" v-bind:object="object" v-bind:bus="bus" v-bind:layout="layout"></object-node>
+                </div>
+            </div>
+        </template>
+
+        <template id="tpl-object-node">
+            <div class="layout-object" v-bind:class="{'has-failure': object.hasFailure}">
+                <div class="title icon-sprite-before"
+                    v-on:click="toggleReportNode(object)"
+                    >{{object.name}}:</div>
+                <div class="child-nodes" v-bind:class="{'child-nodes-expanded': object.expanded}">
+                    <layout-spec v-for="spec in object.specs" v-bind:spec="spec" v-bind:bus="bus" v-bind:layout="layout"></layout-spec>
+
+                    <layout-spec-group v-if="object.specGroups"
+                        v-for="specGroup in object.specGroups"
+                        v-bind:specgroup="specGroup"
+                        v-bind:bus="bus"
+                        v-bind:layout="layout"
+                        ></layout-spec-group>
+                </div>
+            </div>
+        </template>
+
+        <template id="tpl-spec-group">
+            <div class="layout-section" v-bind:class="{'has-failure': specgroup.hasFailure}">
+                <div class="title icon-sprite-before"
+                    v-on:click="toggleReportNode(specgroup)"
+                    >{{specgroup.name}}:</div>
+                <div class="child-nodes" v-bind:class="{'child-nodes-expanded': specgroup.expanded}">
+                    <layout-spec v-for="spec in specgroup.specs" v-bind:spec="spec" v-bind:bus="bus" v-bind:layout="layout"></layout-spec>
+                </div>
+            </div>
+        </template>
+
+        <template id="tpl-layout-spec">
+            <div class="layout-spec" v-bind:class="[isFailed ? 'has-failure': '', 'status-' + spec.status]">
+                <div class="title icon-sprite-before"
+                    v-on:click="showSpec"
+                    v-bind:title="spec.place ? spec.place.filePath + ':' + spec.place.lineNumber : ''"
+                    >{{spec.name}}</div>
+                <ul class="error-messages" v-if="isFailed">
+                    <li class="error-message" v-if="spec.imageComparison">
+                        <span class="link" v-on:click="imageComparisonShown = true">Show image comparison</span>
+                    </li>
+                    <li class="error-message" v-for="error in spec.errors">{{error}}</li>
+                </ul>
+                <div v-if="spec.subLayout" class="sublayout">
+                    <layout-section v-if="spec.subLayout.sections" v-for="section in spec.subLayout.sections" v-bind:section="section" v-bind:bus="bus" v-bind:layout="spec.subLayout"></layout-section>
+                </div>
+                <image-comparison-popup v-if="imageComparisonShown" v-on:close="imageComparisonShown = false" v-bind:imagedata="spec.imageComparison"/>
+            </div>
+        </template>
+
+
+        <template id="tpl-image-comparison-popup">
+            <div class="image-comparison-popup">
+                <div class="popup-shadow" v-on:click="$emit('close')"> </div>
+                <div class="popup-container" v-bind:style="{top: position.top + 'px', left: position.left + 'px', width: position.width + 'px', height: position.height + 'px'}">
+                    <div class="popup-body">
+                        <div class="image-layout">
+                            <h5>Actual Image</h5>
+                            <img v-bind:src="imagedata.actualImage"/>
+                        </div>
+                        <div class="image-layout">
+                            <h5>Expected Image</h5>
+                            <img v-bind:src="imagedata.expectedImage"/>
+                        </div>
+                        <div class="image-layout">
+                            <h5>Comparison Map</h5>
+                            <img v-bind:src="imagedata.comparisonMapImage"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+
+        <template id="tpl-screenshot-popup">
+            <div>
+                <div class="popup-shadow" v-on:click="$emit('close')"> </div>
+                <div class="popup-container" v-bind:style="{top: position.top + 'px', left: position.left + 'px', width: position.width + 'px', height: position.height + 'px'}">
+                    <div class="popup-body">
+                        <div class="image-cropper" v-bind:style="{width: crop.width + 'px', height: crop.height + 'px'}">
+                            <img v-bind:src="screenshot" v-bind:style="{'margin-left': crop.offsetLeft +'px', 'margin-top': crop.offsetTop + 'px'}"/>
+                        </div>
+                        <svg v-bind:width="crop.width + 'px'" v-bind:height="crop.height + 'px'">
+                            <g v-for="object in highlight.objects">
+                                <rect
+                                    v-bind:x="object.area.x + crop.offsetLeft"
+                                    v-bind:y="object.area.y + crop.offsetTop"
+                                    v-bind:width="object.area.width"
+                                    v-bind:height="object.area.height"
+                                    style="opacity: 0.8"
+                                    v-bind:style="{fill: object.fill?object.color:'none', 'stroke-width': object.border?3:0, stroke: object.border?object.color:'none'}"/>
+                                <g v-if="object.caption">
+                                    <rect
+                                        v-bind:x="object.area.x + crop.offsetLeft"
+                                        v-bind:y="object.area.y + crop.offsetTop - 20"
+                                        v-bind:width="object.name.length * 15 + 10"
+                                        v-bind:height="20"
+                                        style="opacity: 0.8; stroke-width: 0; stroke: none;"
+                                        v-bind:style="{fill: object.color}"/>
+                                    <text
+                                        v-bind:x="object.area.x + crop.offsetLeft + 5"
+                                        v-bind:y="object.area.y + crop.offsetTop - 5"
+                                        fill="#ffffff"
+                                        font-weight="bold"
+                                        font-family="helvetica"
+                                        font-size="15px"
+                                        >{{object.name}}</text>
+                                </g>
+                            </g>
+
+                            <g v-for="guideElements in guides">
+                                <g v-for="guide in guideElements">
+                                    <line class="meta-line-guide" v-if="guide.type === 'line'"
+                                        v-bind:x1="guide.x1 + crop.offsetLeft"
+                                        v-bind:y1="guide.y1 + crop.offsetTop"
+                                        v-bind:x2="guide.x2 + crop.offsetLeft"
+                                        v-bind:y2="guide.y2 + crop.offsetTop"/>
+
+                                    <g v-if="guide.type === 'text'">
+                                        <text class="meta-text"
+                                            v-bind:x="guide.x + crop.offsetLeft"
+                                            v-bind:y="guide.y + crop.offsetTop"
+                                            v-bind:transform="guide.vertical ? 'rotate(-90,' + (guide.x + crop.offsetLeft) + ', ' + (guide.y + crop.offsetTop) +')': 'rotate(0)'"
+                                            >{{guide.text}}</text>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <div class="popup-side-panel">
+                            <div v-if="spec">
+                                <span class="spec-name">{{spec.name}}</span>
+                                <ul v-if="spec.errors" class="spec-errors">
+                                    <li v-for="error in spec.errors">{{error}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <script>renderTestReport(REPORT_DATA);</script>
+    </body>
+</html>
