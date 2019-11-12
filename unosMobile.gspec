@@ -1,0 +1,115 @@
+@objects
+	flex #ff
+	logo	#ff .logo
+		logoImg img
+	meni	 #ff .okvir .meni
+		lista ul
+	okvir #ff .okvir
+	sadrzaj #ff .okvir .sadrzaj
+	forma #ff .okvir .sadrzaj #forma
+	naziv #ff .okvir .sadrzaj #forma #naziv
+	nazivInput #ff .okvir .sadrzaj #forma #nazivInput
+
+	broj #ff .okvir .sadrzaj #forma #broj
+	brojInput #ff .okvir .sadrzaj #forma #brojInput
+
+	osoba #ff .okvir .sadrzaj #forma #osoba
+	osobaInput #ff .okvir .sadrzaj #forma #osobaInput
+
+	sprat #ff .okvir .sadrzaj #forma #sprat
+	spratInput #ff .okvir .sadrzaj #forma #spratInput
+
+	unos #ff .okvir .sadrzaj #forma #unos
+	unosInput #ff .okvir .sadrzaj #forma #unosInput
+
+= Meni section =
+	flex:
+		@on mobile
+			centered horizontally inside screen
+			centered vertically inside screen
+	logo.logoImg:
+		inside logo 0px top, 221px left, 222px right, 4px bottom
+		@on mobile 
+			centered horizontally inside logo
+			centered vertically inside logo
+			width 24px
+			height 24px
+		above okvir -12px
+		
+	meni.lista:
+    	inside meni 16px top, 9px left, 1px right, 5px bottom
+		@on mobile 
+			centered horizontally inside meni
+	meni:
+		inside okvir 0px top
+		@on mobile 
+			centered horizontally inside meni
+			width 560px
+			height 43px
+		above sadrzaj 16px
+	okvir:
+		inside partly flex 12px top, 0px left, -93px right, 0px bottom
+		below logo -16px
+		@on mobile 
+			centered horizontally inside flex
+			centered vertically inside flex
+
+	sadrzaj:
+		inside okvir 143px top, 0px left, 0px right, 0px bottom
+		below meni 16px
+		@on mobile 
+			centered horizontally inside okvir
+	forma:
+		inside sadrzaj 0px top, 0px left
+		@on mobile
+			centered horizontally inside sadrzaj
+	naziv:
+		inside forma 15px top, 10px left, 438px right, 367px bottom
+		above nazivInput 5px
+		aligned vertically left broj
+		aligned vertically left nazivInput
+	broj:
+		inside forma 95px top, 10px left, 438px right, 287px bottom
+		above brojInput 5px
+		aligned vertically left osoba
+		aligned vertically left brojInput
+	osoba:
+		inside forma 175px top, 10px left, 438px right, 189px bottom
+		above osobaInput 5px
+		aligned vertically left sprat
+		aligned vertically left osobaInput
+	sprat:
+		inside forma 273px top, 10px left, 438px right, 109px bottom
+		above spratInput 5px
+		aligned vertically left unos
+		aligned vertically left spratInput
+	unos:
+		inside forma 353px top, 10px left, 438px right, 29px bottom
+		above unosInput 5px
+		aligned vertically left unosInput
+	nazivInput:
+		aligned vertically left brojInput
+		right-of forma -550px
+		width 200px
+		height 24px
+	brojInput:
+		aligned vertically left osobaInput
+		right-of forma -550px
+		width 200px
+		height 24px
+	osobaInput:
+		aligned vertically left spratInput
+		right-of forma -550px
+		width 200px
+		height 24px
+	spratInput:
+		aligned vertically left unosInput
+		right-of forma -550px
+		width 200px
+		height 24px
+	unosInput:
+		right-of forma -550px
+		width 196px
+		height 24px
+	
+			

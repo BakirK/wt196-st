@@ -1,0 +1,1352 @@
+{
+  "testId" : "1-unosmobile.gspec",
+  "name" : "unosMobile.gspec",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Mutation test",
+      "status" : "info",
+      "nodes" : [ {
+        "name" : "check  unosMobile.gspec --url http://localhost/unos.html --size 360x640 --offset 5 --htmlreport izvjestaji/unosMobile",
+        "status" : "info",
+        "nodes" : [ {
+          "name" : "Check layout: unosMobile.gspec included tags: ",
+          "status" : "info",
+          "time" : 1573577509449,
+          "sections" : [ {
+            "name" : "Meni section",
+            "place" : {
+              "filePath" : "unosMobile.gspec",
+              "lineNumber" : 25
+            },
+            "objects" : [ {
+              "name" : "logo.logoImg",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 31
+                },
+                "name" : "inside logo 0px top, 221px left, 222px right, 4px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "221px",
+                  "realDistance" : "221px"
+                }, {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "222px",
+                  "realDistance" : "222px"
+                }, {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "4px",
+                  "realDistance" : "4px"
+                } ],
+                "highlight" : [ "logo.logoImg", "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 37
+                },
+                "name" : "above okvir -12px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo.logoImg",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "-12px",
+                  "realDistance" : "-12px"
+                } ],
+                "highlight" : [ "logo.logoImg", "okvir" ]
+              } ]
+            }, {
+              "name" : "meni.lista",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 40
+                },
+                "name" : "inside meni 16px top, 9px left, 1px right, 5px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                }, {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "9px",
+                  "realDistance" : "9px"
+                }, {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "1px",
+                  "realDistance" : "1px"
+                }, {
+                  "from" : {
+                    "object" : "meni.lista",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                } ],
+                "highlight" : [ "meni.lista", "meni" ]
+              } ]
+            }, {
+              "name" : "meni",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 44
+                },
+                "name" : "inside okvir 0px top",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "meni", "okvir" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 49
+                },
+                "name" : "above sadrzaj 16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                } ],
+                "highlight" : [ "meni", "sadrzaj" ]
+              } ]
+            }, {
+              "name" : "okvir",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 51
+                },
+                "name" : "inside partly flex 12px top, 0px left, -93px right, 0px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "12px",
+                  "realDistance" : "12px"
+                }, {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "-93px",
+                  "realDistance" : "-93px"
+                }, {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "flex",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "okvir", "flex" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 52
+                },
+                "name" : "below logo -16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "-16px",
+                  "realDistance" : "-16px"
+                } ],
+                "highlight" : [ "okvir", "logo" ]
+              } ]
+            }, {
+              "name" : "sadrzaj",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 58
+                },
+                "name" : "inside okvir 143px top, 0px left, 0px right, 0px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "143px",
+                  "realDistance" : "143px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "okvir",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "sadrzaj", "okvir" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 59
+                },
+                "name" : "below meni 16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                } ],
+                "highlight" : [ "sadrzaj", "meni" ]
+              } ]
+            }, {
+              "name" : "forma",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 63
+                },
+                "name" : "inside sadrzaj 0px top, 0px left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "forma", "sadrzaj" ]
+              } ]
+            }, {
+              "name" : "naziv",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 67
+                },
+                "name" : "inside forma 15px top, 10px left, 438px right, 367px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "naziv",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "15px",
+                  "realDistance" : "15px"
+                }, {
+                  "from" : {
+                    "object" : "naziv",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "10px",
+                  "realDistance" : "10px"
+                }, {
+                  "from" : {
+                    "object" : "naziv",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "438px",
+                  "realDistance" : "438px"
+                }, {
+                  "from" : {
+                    "object" : "naziv",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "367px",
+                  "realDistance" : "367px"
+                } ],
+                "highlight" : [ "naziv", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 68
+                },
+                "name" : "above nazivInput 5px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "naziv",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "nazivInput",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                } ],
+                "highlight" : [ "naziv", "nazivInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 69
+                },
+                "name" : "aligned vertically left broj",
+                "highlight" : [ "naziv", "broj" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 70
+                },
+                "name" : "aligned vertically left nazivInput",
+                "highlight" : [ "naziv", "nazivInput" ]
+              } ]
+            }, {
+              "name" : "broj",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 72
+                },
+                "name" : "inside forma 95px top, 10px left, 438px right, 287px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "broj",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "95px",
+                  "realDistance" : "95px"
+                }, {
+                  "from" : {
+                    "object" : "broj",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "10px",
+                  "realDistance" : "10px"
+                }, {
+                  "from" : {
+                    "object" : "broj",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "438px",
+                  "realDistance" : "438px"
+                }, {
+                  "from" : {
+                    "object" : "broj",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "287px",
+                  "realDistance" : "287px"
+                } ],
+                "highlight" : [ "broj", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 73
+                },
+                "name" : "above brojInput 5px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "broj",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "brojInput",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                } ],
+                "highlight" : [ "broj", "brojInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 74
+                },
+                "name" : "aligned vertically left osoba",
+                "highlight" : [ "broj", "osoba" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 75
+                },
+                "name" : "aligned vertically left brojInput",
+                "highlight" : [ "broj", "brojInput" ]
+              } ]
+            }, {
+              "name" : "osoba",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 77
+                },
+                "name" : "inside forma 175px top, 10px left, 438px right, 189px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "osoba",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "175px",
+                  "realDistance" : "175px"
+                }, {
+                  "from" : {
+                    "object" : "osoba",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "10px",
+                  "realDistance" : "10px"
+                }, {
+                  "from" : {
+                    "object" : "osoba",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "438px",
+                  "realDistance" : "438px"
+                }, {
+                  "from" : {
+                    "object" : "osoba",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "189px",
+                  "realDistance" : "189px"
+                } ],
+                "highlight" : [ "osoba", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 78
+                },
+                "name" : "above osobaInput 5px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "osoba",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "osobaInput",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                } ],
+                "highlight" : [ "osoba", "osobaInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 79
+                },
+                "name" : "aligned vertically left sprat",
+                "highlight" : [ "osoba", "sprat" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 80
+                },
+                "name" : "aligned vertically left osobaInput",
+                "highlight" : [ "osoba", "osobaInput" ]
+              } ]
+            }, {
+              "name" : "sprat",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 82
+                },
+                "name" : "inside forma 273px top, 10px left, 438px right, 109px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sprat",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "273px",
+                  "realDistance" : "273px"
+                }, {
+                  "from" : {
+                    "object" : "sprat",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "10px",
+                  "realDistance" : "10px"
+                }, {
+                  "from" : {
+                    "object" : "sprat",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "438px",
+                  "realDistance" : "438px"
+                }, {
+                  "from" : {
+                    "object" : "sprat",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "109px",
+                  "realDistance" : "109px"
+                } ],
+                "highlight" : [ "sprat", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 83
+                },
+                "name" : "above spratInput 5px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sprat",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "spratInput",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                } ],
+                "highlight" : [ "sprat", "spratInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 84
+                },
+                "name" : "aligned vertically left unos",
+                "highlight" : [ "sprat", "unos" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 85
+                },
+                "name" : "aligned vertically left spratInput",
+                "highlight" : [ "sprat", "spratInput" ]
+              } ]
+            }, {
+              "name" : "unos",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 87
+                },
+                "name" : "inside forma 353px top, 10px left, 438px right, 29px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "unos",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "353px",
+                  "realDistance" : "353px"
+                }, {
+                  "from" : {
+                    "object" : "unos",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "10px",
+                  "realDistance" : "10px"
+                }, {
+                  "from" : {
+                    "object" : "unos",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "438px",
+                  "realDistance" : "438px"
+                }, {
+                  "from" : {
+                    "object" : "unos",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "29px",
+                  "realDistance" : "29px"
+                } ],
+                "highlight" : [ "unos", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 88
+                },
+                "name" : "above unosInput 5px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "unos",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "unosInput",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                } ],
+                "highlight" : [ "unos", "unosInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 89
+                },
+                "name" : "aligned vertically left unosInput",
+                "highlight" : [ "unos", "unosInput" ]
+              } ]
+            }, {
+              "name" : "nazivInput",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 91
+                },
+                "name" : "aligned vertically left brojInput",
+                "highlight" : [ "nazivInput", "brojInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 92
+                },
+                "name" : "right-of forma -550px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "nazivInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "-550px",
+                  "realDistance" : "-550px"
+                } ],
+                "highlight" : [ "nazivInput", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 93
+                },
+                "name" : "width 200px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "nazivInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "nazivInput",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "200px",
+                  "realDistance" : "200px"
+                } ],
+                "highlight" : [ "nazivInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 94
+                },
+                "name" : "height 24px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "nazivInput",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "nazivInput",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "24px",
+                  "realDistance" : "24px"
+                } ],
+                "highlight" : [ "nazivInput" ]
+              } ]
+            }, {
+              "name" : "brojInput",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 96
+                },
+                "name" : "aligned vertically left osobaInput",
+                "highlight" : [ "brojInput", "osobaInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 97
+                },
+                "name" : "right-of forma -550px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "brojInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "-550px",
+                  "realDistance" : "-550px"
+                } ],
+                "highlight" : [ "brojInput", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 98
+                },
+                "name" : "width 200px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "brojInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "brojInput",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "200px",
+                  "realDistance" : "200px"
+                } ],
+                "highlight" : [ "brojInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 99
+                },
+                "name" : "height 24px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "brojInput",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "brojInput",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "24px",
+                  "realDistance" : "24px"
+                } ],
+                "highlight" : [ "brojInput" ]
+              } ]
+            }, {
+              "name" : "osobaInput",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 101
+                },
+                "name" : "aligned vertically left spratInput",
+                "highlight" : [ "osobaInput", "spratInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 102
+                },
+                "name" : "right-of forma -550px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "osobaInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "-550px",
+                  "realDistance" : "-550px"
+                } ],
+                "highlight" : [ "osobaInput", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 103
+                },
+                "name" : "width 200px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "osobaInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "osobaInput",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "200px",
+                  "realDistance" : "200px"
+                } ],
+                "highlight" : [ "osobaInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 104
+                },
+                "name" : "height 24px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "osobaInput",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "osobaInput",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "24px",
+                  "realDistance" : "24px"
+                } ],
+                "highlight" : [ "osobaInput" ]
+              } ]
+            }, {
+              "name" : "spratInput",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 106
+                },
+                "name" : "aligned vertically left unosInput",
+                "highlight" : [ "spratInput", "unosInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 107
+                },
+                "name" : "right-of forma -550px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "spratInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "-550px",
+                  "realDistance" : "-550px"
+                } ],
+                "highlight" : [ "spratInput", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 108
+                },
+                "name" : "width 200px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "spratInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "spratInput",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "200px",
+                  "realDistance" : "200px"
+                } ],
+                "highlight" : [ "spratInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 109
+                },
+                "name" : "height 24px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "spratInput",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "spratInput",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "24px",
+                  "realDistance" : "24px"
+                } ],
+                "highlight" : [ "spratInput" ]
+              } ]
+            }, {
+              "name" : "unosInput",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 111
+                },
+                "name" : "right-of forma -550px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "unosInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "-550px",
+                  "realDistance" : "-550px"
+                } ],
+                "highlight" : [ "unosInput", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 112
+                },
+                "name" : "width 196px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "unosInput",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "unosInput",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "196px",
+                  "realDistance" : "196px"
+                } ],
+                "highlight" : [ "unosInput" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unosMobile.gspec",
+                  "lineNumber" : 113
+                },
+                "name" : "height 24px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "unosInput",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "unosInput",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "24px",
+                  "realDistance" : "24px"
+                } ],
+                "highlight" : [ "unosInput" ]
+              } ]
+            } ]
+          } ],
+          "objects" : {
+            "meni" : {
+              "area" : [ 8, 20, 560, 127 ]
+            },
+            "sprat" : {
+              "area" : [ 18, 436, 112, 18 ]
+            },
+            "broj" : {
+              "area" : [ 18, 258, 112, 18 ]
+            },
+            "logo.logoImg" : {
+              "area" : [ 229, 8, 24, 24 ]
+            },
+            "naziv" : {
+              "area" : [ 18, 178, 112, 18 ]
+            },
+            "unos" : {
+              "area" : [ 18, 516, 112, 18 ]
+            },
+            "forma" : {
+              "area" : [ 8, 163, 560, 400 ]
+            },
+            "okvir" : {
+              "area" : [ 8, 20, 560, 548 ]
+            },
+            "sadrzaj" : {
+              "area" : [ 8, 163, 560, 405 ]
+            },
+            "flex" : {
+              "area" : [ 8, 8, 467, 560 ]
+            },
+            "nazivInput" : {
+              "area" : [ 18, 201, 200, 24 ]
+            },
+            "osoba" : {
+              "area" : [ 18, 338, 112, 36 ]
+            },
+            "logo" : {
+              "area" : [ 8, 8, 467, 28 ]
+            },
+            "brojInput" : {
+              "area" : [ 18, 281, 200, 24 ]
+            },
+            "osobaInput" : {
+              "area" : [ 18, 379, 200, 24 ]
+            },
+            "spratInput" : {
+              "area" : [ 18, 459, 200, 24 ]
+            },
+            "unosInput" : {
+              "area" : [ 18, 539, 196, 24 ]
+            },
+            "meni.lista" : {
+              "area" : [ 17, 36, 550, 106 ]
+            }
+          },
+          "screenshot" : "layout-1-screenshot.png",
+          "type" : "layout"
+        }, {
+          "name" : "Mutation testing: unosMobile.gspec included tags: ",
+          "status" : "info",
+          "time" : 1573577509449,
+          "mutationReport" : {
+            "objectMutationStatistics" : {
+              "meni" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "sprat" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "broj" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "logo.logoImg" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "naziv" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "unos" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "forma" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "okvir" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "sadrzaj" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "flex" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "nazivInput" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "osoba" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "logo" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "brojInput" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "osobaInput" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "spratInput" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "unosInput" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "meni.lista" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              }
+            },
+            "totalPassed" : 180,
+            "totalFailed" : 0,
+            "failedRatio" : 0.0,
+            "totalMutations" : 180
+          },
+          "type" : "mutation"
+        } ],
+        "time" : 1573577505334,
+        "type" : "node"
+      } ],
+      "time" : 1573577501488,
+      "type" : "node"
+    } ]
+  }
+}
