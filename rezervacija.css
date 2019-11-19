@@ -63,10 +63,6 @@ label:after {
     margin: 5px;
     vertical-align: middle;
 }
-.dateGrid div:first-child {
-  grid-column: 5; /*prvi dan ce poceti u 5. koloni, drugi u 6. etc.*/
-}
-
 .calendar {
     border: 1px solid #41699a;
     text-align: center;
@@ -193,10 +189,6 @@ label:after {
     .dayWrapper {
         width: 100%;
         height: 40px;
-    }
-    .dateGrid div:first-child {
-      grid-column-start: 1;
-      grid-row-start: span 4;
     }
     .fake {
       display: block;
