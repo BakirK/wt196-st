@@ -53,7 +53,9 @@ label:after {
   font-weight: 500;
 }
 
-
+.dateGrid {
+  grid-template-rows: repeat(6, 1fr);
+}
 .dateGrid,
 .dayOfWeek {
     display: grid;
@@ -75,7 +77,7 @@ label:after {
 .dayWrapper {
     border: 1px solid #41699a;
 }
-.buttonDiv button{
+.buttonDiv button {
     width: 100%;
 }
 
