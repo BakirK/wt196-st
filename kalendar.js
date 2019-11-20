@@ -45,23 +45,28 @@ var Kalendar = (function(){
     var periodicnaZauzeca, vanrednaZauzeca;
     let ucitani = false;
     function obojiZauzecaImpl(kalendarRef, mjesec, sala, pocetak, kraj){
+        let pozadine = document.getElementsByClassName("pozadina");
+        for (let j = 0; j < pozadine.length; j++) {
+            pozadine[j].classList.remove("zauzeta");
+            pozadine[j].classList.add("slobodna");
+        }
+
         if (ucitani) {
-            for (var i = 0; i < periodicnaZauzeca.length; i++) {
-                if(trenutnaSala  == periodicnaZauzeca[i].naziv) {
-                    if(Semestar(mjesec) === periodicnaZauzeca[i].semestar) {
+            for (let i = 0; i < periodicnaZauzeca.length; i++) {
+                if(sala.toLowerCase()  == periodicnaZauzeca[i].naziv.toLowerCase()) {
+                    if(Semestar(mjesec) === periodicnaZauzeca[i].semestar.toLowerCase()) {
                         let trenutniDan = document.getElementsByClassName("fake").length;
-                        let pozadine = document.getElementsByClassName("pozadina");
 
                         let pocetniDatum = Date.parse('01/01/2011 ' + pocetak + ':00');
                         let krajniDatum = Date.parse('01/01/2011 ' + kraj + ':00');
                         let pocetniZauzetiDatum = Date.parse('01/01/2011 ' + periodicnaZauzeca[i].pocetak + ':00');
                         let krajniZauzetiDatum = Date.parse('01/01/2011 ' + periodicnaZauzeca[i].kraj + ':00');
-
-                        for (var i = 0; i < pozadine.length; i++) {
-                            if(trenutniDan == periodicnaZauzeca[i].dan || 
+                        pozadine = document.getElementsByClassName("pozadina");
+                        for (let j = 0; j < pozadine.length; j++) {
+                            if(trenutniDan == periodicnaZauzeca[i].dan && 
                                 poklapajuSeDatumi(pocetniDatum, krajniDatum, pocetniZauzetiDatum, krajniZauzetiDatum)) {
-                                pozadine[i].classList.remove("slobodna");
-                                pozadine[i].classList.add("zauzeta");
+                                pozadine[j].classList.remove("slobodna");
+                                pozadine[j].classList.add("zauzeta");
                             }
                             trenutniDan = (trenutniDan + 1)% 7;
                         }
@@ -69,25 +74,23 @@ var Kalendar = (function(){
                 }
             }
 
-            for (var i = 0; i < vanrednaZauzeca.length; i++) {
-                if(trenutnaSala == vanrednaZauzeca[i].naziv) {
+            for (let i = 0; i < vanrednaZauzeca.length; i++) {
+                if(sala.toLowerCase() == vanrednaZauzeca[i].naziv.toLowerCase()) {
                     let datumVanredna = vanrednaZauzeca[i].datum.split(".");
-                    if(mjesec == datum[1]) {
-                        let trenutniDan = document.getElementsByClassName("fake").length;
-                        let pozadine = document.getElementsByClassName("pozadina");
-
+                    if(mjesec == (datumVanredna[1] - 1)) {
+                        let trenutniDan = 1;
                         let pocetniDatum = Date.parse('01/01/2011 ' + pocetak + ':00');
                         let krajniDatum = Date.parse('01/01/2011 ' + kraj + ':00');
                         let pocetniZauzetiDatum = Date.parse('01/01/2011 ' + vanrednaZauzeca[i].pocetak + ':00');
                         let krajniZauzetiDatum = Date.parse('01/01/2011 ' + vanrednaZauzeca[i].kraj + ':00');
-
-                        for (var i = 0; i < pozadine.length; i++) {
-                            if(trenutniDan == datumVanredna[0] || 
+                        pozadine = document.getElementsByClassName("pozadina");
+                        for (let j = 0; j < pozadine.length; j++) {
+                            if(trenutniDan == datumVanredna[0] &&
                                 poklapajuSeDatumi(pocetniDatum, krajniDatum, pocetniZauzetiDatum, krajniZauzetiDatum)) {
-                                pozadine[i].classList.remove("slobodna");
-                                pozadine[i].classList.add("zauzeta");
+                                pozadine[j].classList.remove("slobodna");
+                                pozadine[j].classList.add("zauzeta");
                             }
-                            trenutniDan = (trenutniDan + 1)% 7;
+                            trenutniDan++;
                         }
                     }
                 }
@@ -148,7 +151,7 @@ var Kalendar = (function(){
         }
     }
     return {
-        //obojiZauzeca: obojiZauzecaImpl,
+        obojiZauzeca: obojiZauzecaImpl,
         ucitajPodatke: ucitajPodatkeImpl,
         iscrtajKalendar : iscrtajKalendarImpl
     }
