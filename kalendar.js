@@ -3,6 +3,7 @@ var currentMonth = today.getMonth();
 var months = ["Januar", "Februar", "Mart", "April", "Maj", "Juni", "Juli", "August", "Septembar", "Oktobar", "Novembar", "Decembar"];
 var trenutnaSala;
 var sala;
+var pocetakVrijeme, krajVrijeme;
 //sala.options[e.selectedIndex]
 function next() {
     //currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
@@ -157,25 +158,65 @@ var Kalendar = (function(){
     }
 }());
 
+function ucitajDefaultPodatke() {
+    let redovna = [
+          {dan: 0, semestar: 'Zimski', pocetak: '11:15', kraj: '12:00', naziv:'A1', predavac: 'Ban Kulin'},
+          {dan: 1, semestar: 'Zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
+          {dan: 2, semestar: 'Zimski', pocetak: '12:15', kraj: '13:15', naziv:'A1', predavac: 'Ban Kulin'},  
+        ];
+    let vanredna = [
+          {datum: '23.11.2019', pocetak: '09:15', kraj: '13:00', naziv:'A1', predavac: 'Ban Kulin'},
+          {datum: '14.11.2019', pocetak: '09:15', kraj: '12:00', naziv:'A1', predavac: 'Ban Kulin'},
+          {datum: '18.11.2019', pocetak: '09:15', kraj: '14:00', naziv:'A1', predavac: 'Ban Kulin'},
+          {datum: '09.11.2019', pocetak: '09:15', kraj: '15:00', naziv:'A1', predavac: 'Ban Kulin'},
+          {datum: '27.11.2019', pocetak: '09:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
+        ];
+        Kalendar.ucitajPodatke(redovna, vanredna);
+}
+
+function obojiPrviPut() {
+    pocetakVrijeme = document.getElementById("pocetakVrijeme");
+    krajVrijeme = document.getElementById("krajVrijeme");
+    let vrijemePocetak = pocetakVrijeme.value.toString();
+    let vrijemeKraj = krajVrijeme.value.toString();
+    Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), currentMonth, trenutnaSala, vrijemePocetak, vrijemeKraj);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-    //listener za promjenu odabira u listi sala
+    Kalendar.iscrtajKalendar(document.querySelector(".dateGrid"), currentMonth);
+
     sala = document.getElementById("sale");
     if(sala != null) {
         trenutnaSala = sala.options[sala.selectedIndex].innerHTML;
+        //listener za promjenu odabira u listi sala
         sala.addEventListener('change', function() {
             trenutnaSala = sala.options[sala.selectedIndex].innerHTML;
             console.log(trenutnaSala);
         }, false);
+        ucitajDefaultPodatke();
+        
+        document.getElementById("provjeriButton").addEventListener('click', function() {
+            obojiPrviPut()
+        }, false);
+
+
+        obojiPrviPut();
     }
    
-    Kalendar.iscrtajKalendar(document.querySelector(".dateGrid"), currentMonth);
+    
     document.querySelector(".prev").addEventListener( "click", function( ev ) {
         previous();
+        if(sala != null) {
+            obojiPrviPut();
+        }
     }, false);
     
 
     document.querySelector(".next").addEventListener( "click", function( ev ) {
         next();
+        if(sala != null) {
+            obojiPrviPut();
+        }
     }, false);
     
 });
