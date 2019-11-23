@@ -4,9 +4,7 @@ var months = ["Januar", "Februar", "Mart", "April", "Maj", "Juni", "Juli", "Augu
 var trenutnaSala;
 var sala;
 var pocetakVrijeme, krajVrijeme;
-//sala.options[e.selectedIndex]
 function next() {
-    //currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
     if(currentMonth == 11) { //decembar
     	document.querySelector(".next").disabled = true;
@@ -18,7 +16,6 @@ function next() {
 }
 
 function previous() {
-    ///currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
     if(currentMonth == 0) {
     	document.querySelector(".prev").disabled = true;
@@ -115,8 +112,6 @@ var Kalendar = (function(){
         let daysInMonth = 32 - new Date(2019, month, 32).getDate();
         let date = 1;
         for (let i = 0; i < 6; i++) {
-
-            //creating individual cells, filing them up with data.
             for (let j = 0; j < 7; j++) {
                 if (i === 0 && j < firstDay) {
                 	let tempDiv = document.createElement("div");
@@ -126,7 +121,6 @@ var Kalendar = (function(){
                 else if (date > daysInMonth) {
                     break;
                 }
-
                 else {
                 	let dayWrapper = document.createElement("div");
                 	dayWrapper.classList.add("dayWrapper");
