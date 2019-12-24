@@ -28,11 +28,9 @@ var Pozivi = (function(){
         return false;
     }
     function dodajZauzeceImpl(vrijemePocetak, vrijemeKraj, checked, dan, redniDan) {
-        if(!checked) {
-            
-        } else {
-            //let datumStart = Date.parse(dan + '/' + currentMonth + '/' + currentYear +' ' + vrijemePocetak + ':00');
             let date = Date.parse(dan + '/' + currentMonth + '/' + currentYear);
+        
+            //let datumStart = Date.parse(dan + '/' + currentMonth + '/' + currentYear +' ' + vrijemePocetak + ':00');
             //let pocetniZauzetiDatum = Date.parse('01/01/2011 ' + periodicnaZauzeca[i].pocetak + ':00');
             //let krajniZauzetiDatum = Date.parse('01/01/2011 ' + periodicnaZauzeca[i].kraj + ':00');
 
@@ -59,10 +57,18 @@ var Pozivi = (function(){
                              vrijemePocetak + " do "+ vrijemeKraj +"!";
                 }
             }
-            let tempVanredno = {
+            if(checked) {
+                let tempVanredno = {
+                    dan : redniDan, semestar: Semestar(currentMonth).toLowerCase(), pocetak : vrijemePocetak, kraj : vrijemeKraj, naziv : trenutnaSala, predavac : ""
+                    }
+                jsonObj['redovna'].push(tempVanredno);
+            } else {
+                let tempVanredno = {
                 datum : dan + '.' + (currentMonth+1) + '.' + currentYear, pocetak : vrijemePocetak, kraj : vrijemeKraj, naziv : trenutnaSala, predavac : ""
+                }
+                jsonObj['vanredna'].push(tempVanredno);
             }
-            jsonObj['vanredna'].push(tempVanredno);
+            
 
 
             $.ajax({
@@ -80,7 +86,6 @@ var Pozivi = (function(){
                 type: 'POST',
                 url: 'http://localhost:8080/json'
             });
-        }
     }
 
     return {
