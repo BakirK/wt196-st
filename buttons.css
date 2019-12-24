@@ -1,0 +1,83 @@
+.prev{
+    float: left;
+}
+.next {
+    float: right;
+} 
+.buttons button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 5px 5px;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 10px;
+      cursor: pointer;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+      width: 25%;
+}
+.buttons button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.prev span:before {
+    content: '\00ab';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -10px;
+    transition: 0.5s;
+}
+.next span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -10px;
+    transition: 0.5s;
+}
+.buttons span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.prev:hover span {
+  padding-left: 25px;
+}
+.next:hover span {
+  padding-right: 25px;
+}
+
+.prev:hover span:before {
+  opacity: 1;
+  left: 0;
+}
+.next:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.buttons {
+    height: 2.5em;
+}
+.next:hover,
+.prev:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .next {
+        float: left;
+    }
+    .buttons button {
+        width: 24%;
+    }
+}

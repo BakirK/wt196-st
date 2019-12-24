@@ -4,6 +4,11 @@ var months = ["Januar", "Februar", "Mart", "April", "Maj", "Juni", "Juli", "Augu
 var trenutnaSala;
 var sala;
 var pocetakVrijeme, krajVrijeme;
+if(currentMonth == 11) { //decembar
+    document.querySelector(".next").disabled = true;
+} else if(currentMonth == 0) {
+    document.querySelector(".prev").disabled = true;
+}
 function next() {
     currentMonth = (currentMonth + 1) % 12;
     if(currentMonth == 11) { //decembar

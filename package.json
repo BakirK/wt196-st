@@ -1,0 +1,19 @@
+{
+  "name": "wt196-st",
+  "version": "1.0.0",
+  "description": "Stručni studij - razvoj softvera\r Akademska 2019/20 godina - III semestar\r ### Linkovi na postavke spirala",
+  "main": "kalendar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://BakirK@bitbucket.org/BakirK/wt196-st.git"
+  },
+  "author": "BakirK",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/BakirK/wt196-st#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
