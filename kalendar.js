@@ -157,21 +157,7 @@ var Kalendar = (function(){
     }
 }());
 
-function ucitajDefaultPodatke() {
-    let redovna = [
-          {dan: 0, semestar: 'Zimski', pocetak: '11:15', kraj: '12:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 1, semestar: 'Zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 2, semestar: 'Zimski', pocetak: '12:15', kraj: '13:15', naziv:'A1', predavac: 'Ban Kulin'},  
-        ];
-    let vanredna = [
-          {datum: '23.11.2019', pocetak: '09:15', kraj: '13:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '14.11.2019', pocetak: '09:15', kraj: '12:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '18.11.2019', pocetak: '09:15', kraj: '14:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.11.2019', pocetak: '09:15', kraj: '15:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '27.11.2019', pocetak: '09:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-        ];
-        Kalendar.ucitajPodatke(redovna, vanredna);
-}
+
 
 function obojiPrviPut() {
     pocetakVrijeme = document.getElementById("pocetakVrijeme");
@@ -217,5 +203,4 @@ document.addEventListener('DOMContentLoaded', function () {
             obojiPrviPut();
         }
     }, false);
-    
 });
