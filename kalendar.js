@@ -1,5 +1,6 @@
 var today = new Date();
 var currentMonth = today.getMonth();
+var currentYear = today.getYear() + 1900;
 var months = ["Januar", "Februar", "Mart", "April", "Maj", "Juni", "Juli", "August", "Septembar", "Oktobar", "Novembar", "Decembar"];
 var trenutnaSala;
 var sala;
@@ -41,6 +42,8 @@ function poklapajuSeDatumi(date1Pocetak, date1Kraj, date2Pocetak, date2Kraj) {
     if(date1Kraj > date2Pocetak && date1Kraj < date2Kraj) return true;
     if(date2Pocetak > date1Pocetak && date2Pocetak < date1Kraj) return true;
     if(date2Kraj > date1Pocetak && date2Kraj < date1Kraj) return true;
+    if(date1Pocetak == date2Pocetak) return true;
+    if(date1Kraj == date2Kraj) return true;
     return false;
 }
 
@@ -55,6 +58,10 @@ var Kalendar = (function(){
         }
 
         if (ucitani) {
+            let dugmad = document.getElementsByClassName("dugmad");
+            for (var i = dugmad.length - 1; i >= 0; i--) {
+                dugmad[i].disabled = false;
+            }
             for (let i = 0; i < periodicnaZauzeca.length; i++) {
                 if(sala.toLowerCase()  == periodicnaZauzeca[i].naziv.toLowerCase()) {
                     if(Semestar(mjesec) === periodicnaZauzeca[i].semestar.toLowerCase()) {
@@ -70,6 +77,7 @@ var Kalendar = (function(){
                                 poklapajuSeDatumi(pocetniDatum, krajniDatum, pocetniZauzetiDatum, krajniZauzetiDatum)) {
                                 pozadine[j].classList.remove("slobodna");
                                 pozadine[j].classList.add("zauzeta");
+                                dugmad[j].disabled = true;
                             }
                             trenutniDan = (trenutniDan + 1)% 7;
                         }
@@ -92,6 +100,7 @@ var Kalendar = (function(){
                                 poklapajuSeDatumi(pocetniDatum, krajniDatum, pocetniZauzetiDatum, krajniZauzetiDatum)) {
                                 pozadine[j].classList.remove("slobodna");
                                 pozadine[j].classList.add("zauzeta");
+                                dugmad[j].disabled = true;
                             }
                             trenutniDan++;
                         }
@@ -113,8 +122,8 @@ var Kalendar = (function(){
         document.querySelector(".monthIndicator").appendChild(timeWrapper);
     	kalendarRef.innerHTML = "";
 
-        let firstDay = ((new Date(2019, month)).getDay() + 6) % 7; //shiftaj dane za 6 jer je nedjelja prvi dan
-        let daysInMonth = 32 - new Date(2019, month, 32).getDate();
+        let firstDay = ((new Date(currentYear, month)).getDay() + 6) % 7; //shiftaj dane za 6 jer je nedjelja prvi dan
+        let daysInMonth = 32 - new Date(currentYear, month, 32).getDate();
         let date = 1;
         for (let i = 0; i < 6; i++) {
             for (let j = 0; j < 7; j++) {
@@ -133,9 +142,10 @@ var Kalendar = (function(){
     					let buttonDiv = document.createElement("div");
     					buttonDiv.classList.add("buttonDiv");
     						let dugmeTemp = document.createElement("button");
-    							let timeTemp = document.createElement("time");
-    							timeTemp.innerHTML = date;
-                            dugmeTemp.appendChild(timeTemp);
+                            dugmeTemp.disabled = false;
+                            dugmeTemp.classList.add("dugmad");
+    							dugmeTemp.innerHTML = date;
+                            //dugmeTemp.appendChild(timeTemp);
                         buttonDiv.appendChild(dugmeTemp);
 
     					let statusDiv = document.createElement("div");            	
@@ -149,6 +159,7 @@ var Kalendar = (function(){
                 }
             }
         }
+        dodajListener();    
     }
     return {
         obojiZauzeca: obojiZauzecaImpl,
@@ -178,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
             trenutnaSala = sala.options[sala.selectedIndex].innerHTML;
             console.log(trenutnaSala);
         }, false);
-        ucitajDefaultPodatke();
+        ucitajJSONPodatke();
         
         document.getElementById("provjeriButton").addEventListener('click', function() {
             obojiPrviPut()
