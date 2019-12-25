@@ -23,6 +23,11 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+.buttons button:disabled,
+.buttons button[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+}
 .prev span:before {
     content: '\00ab';
     position: absolute;

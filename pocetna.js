@@ -3,16 +3,15 @@ let ucitaneSlike = [];
 let dataUcitanih = [];
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelector(".prev").addEventListener( "click", function( ev ) {
-    //alert("1");
     previous();
   }, false);
-  $(".prev").attr("disabled", true);
+  
 
   document.querySelector(".next").addEventListener( "click", function( ev ) {
-    //alert("2");
     next();
   }, false);
   next();
+  $(".prev").attr("disabled", true);
 });
 
 
