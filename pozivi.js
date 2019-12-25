@@ -88,8 +88,40 @@ var Pozivi = (function(){
             });
     }
 
+    function gibePicImpl(imgName, imgTag, dataUcitanih) {
+        console.log(imgName);
+        $.ajax({
+          type: "GET",
+          url: "http://localhost:8080/" + imgName,
+          beforeSend: function (xhr) {
+            xhr.overrideMimeType('text/plain; charset=x-user-defined');
+          },
+          success: function (result, textStatus, jqXHR) {       
+            if(result.length < 1){
+                alert("The thumbnail doesn't exist");
+                imgTag.src = "data:image/png;base64,";
+                return
+            }
+
+            var binary = "";
+            var responseText = jqXHR.responseText;
+            var responseTextLen = responseText.length;
+
+            for ( i = 0; i < responseTextLen; i++ ) {
+                binary += String.fromCharCode(responseText.charCodeAt(i) & 255)
+            }
+            imgTag.src = "data:image/png;base64,"+btoa(binary);
+            dataUcitanih.push(imgTag.src);
+          },
+          error: function(xhr, textStatus, errorThrown){
+            alert("Error in getting document "+textStatus);
+          } 
+        });
+    }
+
     return {
         dajZauzecaJSON : dajZauzecaJSONImpl,
-        dodajZauzece : dodajZauzeceImpl
+        dodajZauzece : dodajZauzeceImpl,
+        gibePic : gibePicImpl
     }
 }());

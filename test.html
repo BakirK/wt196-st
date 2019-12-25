@@ -1,0 +1,85 @@
+<html>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script language="javascript" type="text/javascript">
+    function send_with_ajax( ){
+        /*var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "http://localhost:8080/1.jpg", true);
+        xhttp.overrideMimeType('text/plain; charset=x-user-defined');
+        xhttp.send(null);
+
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4){
+                if ((xhttp.status == 200) || (xhttp.status == 0)){
+                    var img = $('<img id="get_img">');
+                    console.log(xhttp.responseText);
+                    img.src = 'data:image/jpg;base64,' + xhttp.responseText;
+                }else{
+                    alert("Something misconfiguration : " + 
+                        "\nError Code : " + xhttp.status + 
+                        "\nError Message : " + xhttp.responseText);
+                } 
+            }
+        }; */
+
+        /*$.ajax({
+          type: "GET",
+          url: "http://localhost:8080/1.jpg",
+          beforeSend: function (xhr) {
+            xhr.overrideMimeType('text/plain; charset=x-user-defined');
+          },
+          success: function (result, textStatus, jqXHR) {       
+            if(result.length < 1){
+                alert("The thumbnail doesn't exist");
+                $("#get_img").attr("src", "data:image/png;base64,");
+                return
+            }
+
+            var binary = "";
+            var responseText = jqXHR.responseText;
+            var responseTextLen = responseText.length;
+
+            for ( i = 0; i < responseTextLen; i++ ) {
+                binary += String.fromCharCode(responseText.charCodeAt(i) & 255)
+            }
+            $("#get_img").attr("src", "data:image/png;base64,"+btoa(binary));
+          },
+          error: function(xhr, textStatus, errorThrown){
+            alert("Error in getting document "+textStatus);
+          } 
+        });*/
+        var imgTag = document.getElementById("get_img");
+        $.ajax({
+          type: "GET",
+          url: "http://localhost:8080/1.jpg",
+          beforeSend: function (xhr) {
+            xhr.overrideMimeType('text/plain; charset=x-user-defined');
+          },
+          success: function (result, textStatus, jqXHR) {       
+            if(result.length < 1){
+                alert("The thumbnail doesn't exist");
+                imgTag.src = "data:image/png;base64,";
+                return
+            }
+
+            var binary = "";
+            var responseText = jqXHR.responseText;
+            var responseTextLen = responseText.length;
+
+            for ( i = 0; i < responseTextLen; i++ ) {
+                binary += String.fromCharCode(responseText.charCodeAt(i) & 255)
+            }
+            imgTag.src = "data:image/png;base64,"+btoa(binary);
+          },
+          error: function(xhr, textStatus, errorThrown){
+            alert("Error in getting document "+textStatus);
+          } 
+        });
+    }
+</script>
+
+<button onClick="send_with_ajax()">Get Image</button><br />
+<img id="get_img" />
+
+</body>
+</html>

@@ -10,11 +10,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //html
 app.get("/",function(req,res){
-    app.use(express.static('/img'));
+    //app.use(express.static('/img'));
     res.sendFile(__dirname+"/pocetna.html");
 });
 app.get("/pocetna.html",function(req,res){
-    app.use(express.static('/img'));
+    //app.use(express.static('/img'));
     res.sendFile(__dirname+"/pocetna.html");
 });
 app.get("/rezervacija.html",function(req,res){
@@ -26,6 +26,10 @@ app.get("/sale.html",function(req,res){
 app.get("/unos.html",function(req,res){
     res.sendFile(__dirname+"/unos.html");
 });
+app.get("/test.html",function(req,res){
+    res.sendFile(__dirname+"/test.html");
+});
+
 
 //css
 app.get("/buttons.css", function(req,res) {
@@ -57,12 +61,16 @@ app.get("/pozivi.js", function(req,res) {
 app.get("/rezervacija.js", function(req,res) {
     res.sendFile(__dirname+"/rezervacija.js");
 });
+app.get("/pocetna.js", function(req,res) {
+    res.sendFile(__dirname+"/pocetna.js");
+});
 
 //pics
 app.get("/google.png", function(req,res) {
     res.sendFile(__dirname+"/img/google.png");
 });
 app.get('\/[0-9]0?\.jpg', function(req,res) {
+    app.use(express.static('/img'+req.url.substr(1)));
     res.sendFile(__dirname+"/img/"+req.url.substr(1));
 });
 
