@@ -11,58 +11,55 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //html
 app.get("/",function(req,res){
     //app.use(express.static('/img'));
-    res.sendFile(__dirname+"/pocetna.html");
+    res.sendFile(__dirname+"/html/pocetna.html");
 });
 app.get("/pocetna.html",function(req,res){
     //app.use(express.static('/img'));
-    res.sendFile(__dirname+"/pocetna.html");
+    res.sendFile(__dirname+"/html/pocetna.html");
 });
 app.get("/rezervacija.html",function(req,res){
-    res.sendFile(__dirname+"/rezervacija.html");
+    res.sendFile(__dirname+"/html/rezervacija.html");
 });
 app.get("/sale.html",function(req,res){
-    res.sendFile(__dirname+"/sale.html");
+    res.sendFile(__dirname+"/html/sale.html");
 });
 app.get("/unos.html",function(req,res){
-    res.sendFile(__dirname+"/unos.html");
-});
-app.get("/test.html",function(req,res){
-    res.sendFile(__dirname+"/test.html");
+    res.sendFile(__dirname+"/html/unos.html");
 });
 
 
 //css
 app.get("/buttons.css", function(req,res) {
-    res.sendFile(__dirname+"/buttons.css");
+    res.sendFile(__dirname+"/css/buttons.css");
 });
 app.get("/meni.css", function(req,res) {
-    res.sendFile(__dirname+"/meni.css");
+    res.sendFile(__dirname+"/css/meni.css");
 });
 app.get("/pocetna.css", function(req,res) {
-    res.sendFile(__dirname+"/pocetna.css");
+    res.sendFile(__dirname+"/css/pocetna.css");
 });
 app.get("/rezervacija.css", function(req,res) {
-    res.sendFile(__dirname+"/rezervacija.css");
+    res.sendFile(__dirname+"/css/rezervacija.css");
 });
 app.get("/sale.css", function(req,res) {
-    res.sendFile(__dirname+"/sale.css");
+    res.sendFile(__dirname+"/css/sale.css");
 });
 app.get("/unos.css", function(req,res) {
-    res.sendFile(__dirname+"/unos.css");
+    res.sendFile(__dirname+"/css/unos.css");
 });
 
 //js
 app.get("/kalendar.js", function(req,res) {
-    res.sendFile(__dirname+"/kalendar.js");
+    res.sendFile(__dirname+"/js/kalendar.js");
 });
 app.get("/pozivi.js", function(req,res) {
-    res.sendFile(__dirname+"/pozivi.js");
+    res.sendFile(__dirname+"/js/pozivi.js");
 });
 app.get("/rezervacija.js", function(req,res) {
-    res.sendFile(__dirname+"/rezervacija.js");
+    res.sendFile(__dirname+"/js/rezervacija.js");
 });
 app.get("/pocetna.js", function(req,res) {
-    res.sendFile(__dirname+"/pocetna.js");
+    res.sendFile(__dirname+"/js/pocetna.js");
 });
 
 //pics

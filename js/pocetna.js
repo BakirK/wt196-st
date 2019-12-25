@@ -3,16 +3,15 @@ let ucitaneSlike = [];
 let dataUcitanih = [];
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelector(".prev").addEventListener( "click", function( ev ) {
-    alert("1");
     previous();
   }, false);
-  $(".prev").attr("disabled", true);
+  
 
   document.querySelector(".next").addEventListener( "click", function( ev ) {
-    alert("2");
     next();
   }, false);
   next();
+  $(".prev").attr("disabled", true);
 });
 
 
@@ -28,7 +27,6 @@ function previous() {
     trenutnaSlika = 6;
   } else trenutnaSlika -= 6;
   
-  let pics = document.getElementsByClassName('column');
   prikaziTriSlike();
   if(trenutnaSlika<=3) {
     $(".prev").attr("disabled", true);
@@ -42,19 +40,17 @@ function next() {
 }
 
 function prikaziTriSlike() {
-  let pics = document.getElementsByClassName('column');
+  let pics = document.getElementsByClassName('slika');
   for (var i = 0; i < pics.length; i++) {
     pics[i].style.display = "inline-block";
     trenutnaSlika++;
     if(ucitaneSlike.includes(trenutnaSlika)) {
         pics[i].src = dataUcitanih[trenutnaSlika-1];
     } else {
-      Pozivi.gibePic(trenutnaSlika+'.png', pics[i]);
+      Pozivi.gibePic(trenutnaSlika+'.jpg', pics[i], dataUcitanih);
       ucitaneSlike.push(trenutnaSlika);
-      let temp = pics[i].src;
-      dataUcitanih.push(temp);
-      //alert(dataUcitanih[trenutnaSlika-1]);
-      if(trenutnaSlika == 10) {
+   }
+   if(trenutnaSlika == 10) {
         $(".next").attr("disabled", true);
         //disable ostale slike ako nisu sve popunjene a prikazana je zadnja
         for (var j = i+1; j < pics.length; j++) {
@@ -62,7 +58,6 @@ function prikaziTriSlike() {
         }
         return;
       }
-   }
   }
 }
 
