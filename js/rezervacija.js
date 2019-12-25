@@ -22,6 +22,7 @@ function dodajListener() {
                 let vrijemePocetak = pocetakVrijeme.value.toString();
                 let vrijemeKraj = krajVrijeme.value.toString();
                 let checked = $('#tick').is(':checked');
+                alert(checked);
                 let temp = Pozivi.dodajZauzece(vrijemePocetak, vrijemeKraj, checked, dan, redniDan-1);
                 if(temp) alert(temp);
                 else {
