@@ -5,17 +5,22 @@ module.exports = function(sequelize,DataTypes){
     	termin:{
     		type:Sequelize.INTEGER(),
     		references: {
-		      model: 'termins',
+		      model: 'termini',
 		      key: 'id'
 		    },
 		    unique: true,
 		    allowNull: false
     	}
     }, {
+        /*
     	name: {
 	        singular: "rezervacija",
 	        plural: "rezervacije"
 	    }
+        */
+
+        freezeTableName: true,
+        tableName: 'rezervacije'
     });
     return Rezervacija;
 };

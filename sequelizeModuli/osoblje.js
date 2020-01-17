@@ -6,10 +6,15 @@ module.exports = function(sequelize,DataTypes){
         prezime:Sequelize.STRING,
         uloga:Sequelize.STRING
     }, {
+        /*
     	name: {
 	        singular: "osoba",
 	        plural: "osoblje"
 	    }
+        */
+
+        freezeTableName: true,
+        tableName: 'osoblje'
     })
     return Osoba;
 };

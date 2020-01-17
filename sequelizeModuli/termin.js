@@ -9,10 +9,15 @@ module.exports = function(sequelize,DataTypes){
         pocetak:Sequelize.TIME,
         kraj:Sequelize.TIME
     }, {
+        /*
     	name: {
 	        singular: "termin",
 	        plural: "termini"
 	    }
+        */
+
+        freezeTableName: true,
+        tableName: 'termini'
     })
     return Termin;
 };
