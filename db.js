@@ -11,12 +11,15 @@ db.rezervacija = sequelize.import(__dirname+'/sequelizeModuli/rezervacija.js');
 db.termin = sequelize.import(__dirname+'/sequelizeModuli/termin.js');
 db.sala = sequelize.import(__dirname+'/sequelizeModuli/sala.js');
 
-//ovo ne radi jer ne postavi unique constraint iz nekog razloga pa sam rucno postavio fk sa unique constraitom
-//db.rezervacija.belongsTo(db.termin, {foreignKey:'termin',targetKey:'id', as:'TerminRez', unique: true, allowNull: false});
+//ovo ne radi jer ne postavi unique constraint iz nekog razloga pa sam rucno postavio fk sa unique constraitom u rezervacija.js
+//dok ovaj kod samo generise metode get i set
+db.rezervacija.belongsTo(db.termin, {foreignKey:'termin',targetKey:'id', as:'TerminRez'});
+
+//ista stvar - ne postavlja unique pa sam rucno napravio referencu u sala.js
+db.sala.belongsTo(db.osoba, {foreignKey:'zaduzenaOsoba',targetKey:'id', as:'ZaduzenaOsoba'});
 
 //veze
 db.sala.hasMany(db.rezervacija, {foreignKey:'sala',targetKey:'id', as:'RezervacijaSala'});
 db.osoba.hasMany(db.rezervacija, {foreignKey:'osoba',targetKey:'id', as:'RezervacijaOsobe'});
-db.sala.belongsTo(db.osoba, {foreignKey:'zaduzenaOsoba',targetKey:'id', as:'ZaduzenaOsoba'});
 
 module.exports=db;
