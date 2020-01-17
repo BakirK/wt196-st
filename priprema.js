@@ -10,7 +10,7 @@ function inicializacija(){
     var saleListaPromisea=[];
 
     return new Promise(function(resolve,reject){
- /*   osobljeListaPromisea.push(db.osoba.create({ime:'Neko', prezime:'Nekić', uloga:'profesor'}));
+    osobljeListaPromisea.push(db.osoba.create({ime:'Neko', prezime:'Nekic', uloga:'profesor'}));
     osobljeListaPromisea.push(db.osoba.create({ime:'Drugi', prezime:'Neko', uloga:'asistent'}));
     osobljeListaPromisea.push(db.osoba.create({ime:'Test', prezime:'Test', uloga:'asistent'}));
 
@@ -25,29 +25,17 @@ function inicializacija(){
 
         saleListaPromisea.push(
             db.sala.create({naziv:'1-11'}).then(function(s){
-                s.setZaduzenaOsoba([neko]);
+                s.setZaduzenaOsoba(neko.id);
                 return new Promise(function(resolve,reject){resolve(s);});
             })
         );
         saleListaPromisea.push(
             db.sala.create({naziv:'1-15'}).then(function(s){
-                s.setZaduzenaOsoba([drugi]);
+                s.setZaduzenaOsoba(drugi.id);
                 return new Promise(function(resolve,reject){resolve(s);});
             })
         );
-       /* knjigeListaPromisea.push(
-            db.knjiga.create({naziv:'Travnicka hronika',broj:4}).then(function(k){
-                k.setAutori([andric]);
-                return new Promise(function(resolve,reject){resolve(k);});
-            })
-        );
-        knjigeListaPromisea.push(
-            db.knjiga.create({naziv:'Kameni spavac',broj:6}).then(function(k){
-                k.setAutori([dizdar]);
-                return new Promise(function(resolve,reject){resolve(k);});
-            })
-        );
-        knjigeListaPromisea.push(
+        /*knjigeListaPromisea.push(
             db.knjiga.create({naziv:'Zajednicka knjiga',broj:0}).then(function(k){
                 k.setAutori([andric,dizdar]);
                 return new Promise(function(resolve,reject){resolve(k);});
@@ -73,8 +61,8 @@ function inicializacija(){
                 })
             );
             Promise.all(bibliotekeListaPromisea).then(function(b){resolve(b);}).catch(function(err){console.log("Biblioteke greska "+err);});
-        }).catch(function(err){console.log("Knjige greska "+err);});
-    }).catch(function(err){console.log("Autori greska "+err);});   */
+        }).catch(function(err){console.log("Knjige greska "+err);});*/
+    }).catch(function(err){console.log("Osobe greska "+err);});   
 
     });
 }
