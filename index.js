@@ -83,16 +83,79 @@ app.get("/zauzeca.json", function(req,res) {
         res.end(data.toString());
         res.send();
     });*/
-    /*db.sala.findAll({raw:true, include: [{model: db.rezervacija, as:'RezervacijaSala'}]}).then(function(resultSet) {
-        res.writeHead(200, {'Content-Type': 'application/json'});
-        res.write(JSON.stringify(resultSet));
-        res.send();
-    });*/
+    var redovna = [], vanredna = [], sva = {};
 
     
-    db.rezervacija.findAll({raw:true, include: [{model: db.termin, as:'TerminRez'}, {model: db.sala, as:'RezervacijaSala'}, {model:db.osoba, as:'RezervacijaOsobe'}]}).then(function(resultSet) {
+    db.rezervacija.findAll({
+        raw:true, 
+        attributes: [], 
+        include: [
+            {
+                model: db.termin,
+                as:'TerminRez', 
+                where:{redovni:1}, 
+                attributes: [
+                    'dan', 'pocetak', 'kraj'
+                ]
+            }, 
+            {
+                model: db.sala, 
+                as:'RezervacijaSala',
+                attributes: ['naziv']
+            }, 
+            {
+                model:db.osoba, 
+                as:'RezervacijaOsobe',
+                attributes: [
+                    //db.osoba.sequelize.literal("ime || ' ' || prezime"), 'predavac' 
+                    'ime', 'prezime'        
+                ]
+            }
+        ]
+    }).then(function(resultSet) {
+        /*resultSet.forEach(zauzece => {
+            redovna.push(JSON.stringify(zauzece));
+        });*/
+        redovna = resultSet;
+    });
+
+    db.rezervacija.findAll({
+        raw:true, 
+        attributes: [], 
+        include: [
+            {
+                model: db.termin,
+                as:'TerminRez', 
+                where:{redovni:0}, 
+                attributes: [
+                    'datum', 'semestar', 'pocetak', 'kraj'
+                ]
+            }, 
+            {
+                model: db.sala, 
+                as:'RezervacijaSala',
+                attributes: ['naziv']
+            }, 
+            {
+                model:db.osoba, 
+                as:'RezervacijaOsobe',
+                attributes: [
+                    //db.osoba.sequelize.literal("ime || ' ' || prezime"), 'predavac' 
+                    'ime', 'prezime'        
+                ]
+            }
+        ]
+    }).then(function(resultSet) {
+        /*resultSet.forEach(zauzece => {
+            vanredna.push(JSON.stringify(zauzece));
+        });*/
+        vanredna = resultSet;
+        sva.redovna = redovna;
+        sva.vanredna = vanredna;
         res.writeHead(200, {'Content-Type': 'application/json'});
-        res.write(JSON.stringify(resultSet));
+        let str = JSON.stringify(sva);
+        str = str.replace(new RegExp('TerminRez.', 'g'), '').replace(new RegExp('RezervacijaOsobe.', 'g'), '').replace(new RegExp('RezervacijaSala.', 'g'),'');
+        res.write(str);
         res.send();
     });
     
