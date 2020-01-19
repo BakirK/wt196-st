@@ -3,6 +3,7 @@ const url = require('url');
 var fs = require("fs");
 var app = express();
 const bodyParser = require('body-parser');
+const db = require('./db.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -91,5 +92,14 @@ app.post("/json", function(req,res) {
         console.log('Uspjesno dodano zauzece');
     });
 });
+
+//osoblje
+app.get("/osoblje", function(req, res) {
+    db.osoba.findAll({raw:true, attributes: ['ime', 'prezime', 'uloga']}).then(function(set) {
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.write(JSON.stringify(set));
+        res.send();
+    });
+})
 
 app.listen(8080);

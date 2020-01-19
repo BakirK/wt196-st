@@ -119,9 +119,26 @@ var Pozivi = (function(){
         });
     }
 
+    function dajOsobljeJSONImpl() {
+        var podaci;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //alert(this.responseText);
+                podaci = this.responseText;
+            }
+        };
+        //callback iskljucen jer treba da proslijedi podatke od servera
+        //nazad ka klijentu sto nije moguce sa callbackom
+        xhttp.open("GET", "http://localhost:8080/osoblje", false);
+        xhttp.send();
+        return podaci;
+    }
+
     return {
         dajZauzecaJSON : dajZauzecaJSONImpl,
         dodajZauzece : dodajZauzeceImpl,
-        gibePic : gibePicImpl
+        gibePic : gibePicImpl,
+        dajOsobljeJSON : dajOsobljeJSONImpl
     }
 }());
