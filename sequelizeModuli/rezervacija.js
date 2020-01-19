@@ -11,7 +11,25 @@ module.exports = function(sequelize,DataTypes){
 		    unique: true,
 		    //allowNull: false,
             as:'TerminRez'
-    	}
+    	},
+        sala:{
+            type:Sequelize.INTEGER(),
+            references: {
+              model: 'sale',
+              key: 'id'
+            },
+            //allowNull: false,
+            as:'RezervacijaSala'
+        },
+        osoba:{
+            type:Sequelize.INTEGER(),
+            references: {
+              model: 'osoblje',
+              key: 'id'
+            },
+            //allowNull: false,
+            as:'RezervacijaOsobe'
+        }
     }, {
         /*
     	name: {

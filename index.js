@@ -74,7 +74,7 @@ app.get('\/[0-9]0?\.jpg', function(req,res) {
 
 //json
 app.get("/zauzeca.json", function(req,res) {
-    fs.readFile(__dirname+'/zauzeca.json', (err, data) => {
+    /*fs.readFile(__dirname+'/zauzeca.json', (err, data) => {
         if(err) {
           console.log(err);
           throw err;
@@ -82,7 +82,20 @@ app.get("/zauzeca.json", function(req,res) {
         res.writeHead(200, {'Content-Type': 'application/json'});
         res.end(data.toString());
         res.send();
+    });*/
+    /*db.sala.findAll({raw:true, include: [{model: db.rezervacija, as:'RezervacijaSala'}]}).then(function(resultSet) {
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.write(JSON.stringify(resultSet));
+        res.send();
+    });*/
+
+    
+    db.rezervacija.findAll({raw:true, include: [{model: db.termin, as:'TerminRez'}, {model: db.sala, as:'RezervacijaSala'}, {model:db.osoba, as:'RezervacijaOsobe'}]}).then(function(resultSet) {
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.write(JSON.stringify(resultSet));
+        res.send();
     });
+    
 });
 
 //post
