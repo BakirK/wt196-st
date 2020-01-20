@@ -33,7 +33,7 @@ var Pozivi = (function(){
             //let datumStart = Date.parse(dan + '/' + currentMonth + '/' + currentYear +' ' + vrijemePocetak + ':00');
             //let pocetniZauzetiDatum = Date.parse('01/01/2011 ' + periodicnaZauzeca[i].pocetak + ':00');
             //let krajniZauzetiDatum = Date.parse('01/01/2011 ' + periodicnaZauzeca[i].kraj + ':00');
-
+/*
             for (var i = redovna.length - 1; i >= 0; i--) {
                 let semestar = Semestar(currentMonth);
                 let t1 = redniDan == redovna[i]['dan'];
@@ -65,7 +65,7 @@ var Pozivi = (function(){
                             + dan + '/' + (currentMonth+1) + '/' + currentYear + " i termin od " +
                              vrijemePocetak + " do "+ vrijemeKraj +"!";
                 }
-            }
+            }*/
             var e = document.getElementById("osoblje")
             var osoba = e.options[e.selectedIndex].text;
             let string = osoba.split(" ");
@@ -116,14 +116,15 @@ var Pozivi = (function(){
                         vanredna = tempObj['vanredna'];
                         Kalendar.ucitajPodatke(redovna, vanredna);
                         obojiPrviPut();
-                    } else if (xhr.status == 409) {
-                        alert(data.toString());
-                    } else if (xhr.status == 400) {
-                        alert(data.toString());
                     }
                 },
-                error: function(){
-                    alert("Server ugasen!?");
+                error: function(data, status, xhr){
+                    //alert(JSON.stringify(data));
+                    if (data.status == 409) {
+                        alert(data.responseText);
+                    } else if (data.status == 400) {
+                        alert(data.responseText);
+                    }
                 },
                 processData: false,
                 type: 'POST',

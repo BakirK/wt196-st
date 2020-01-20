@@ -71,8 +71,9 @@ var getZahtjevi = function() {
     }
 
     var provjeriZauzecaImpl = function(redovna, vanredna, obj, callback) {
-        dat = new Date(obj.datum);
-        var dan = ((dat.getDay() + 6) % 7);
+        let parametri = obj.datum.split(".");
+        let dat = new Date(+parametri[2], parametri[1] - 1, +parametri[0]);
+        var dan = dat.getDate();
         var currentMonth = dat.getMonth();
         var currentYear = dat.getYear() + 1900;
         var vrijemePocetak = obj.pocetak;
@@ -92,6 +93,7 @@ var getZahtjevi = function() {
                              vrijemePocetak + " do "+ vrijemeKraj +"! Salu je zauzeo " + 
                              redovna[i]['uloga'] + " " + redovna[i]['ime'] + 
                              " " + redovna[i]['prezime'] + ".");
+                    return 0;
                 }
             }
 
@@ -113,7 +115,8 @@ var getZahtjevi = function() {
                              vrijemePocetak + " do "+ vrijemeKraj +"! Salu je zauzeo " + 
                              vanredna[i]['uloga'] + " " + vanredna[i]['ime'] + 
                              " " + vanredna[i]['prezime'] + ".");
-                }
+                    return 0;
+                } 
             }
             callback(1);
     }
