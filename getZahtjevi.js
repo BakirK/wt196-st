@@ -87,7 +87,7 @@ var getZahtjevi = function() {
                 let t4 = poklapanjeVremenaImpl(vrijemePocetak, vrijemeKraj, redovna[i]['pocetak'], redovna[i]['kraj']);
                 if(t1 && t2 && t3 && t4) {
                     callback( "Nije moguće rezervisati salu " + trenutnaSala + 
-                            " za navedeni datum " + dan + '/' + currentMonth + 
+                            " za navedeni datum " + dan + '/' + (currentMonth+1) + 
                             '/' + currentYear + " i termin od " +
                              vrijemePocetak + " do "+ vrijemeKraj +"! Salu je zauzeo " + 
                              redovna[i]['uloga'] + " " + redovna[i]['ime'] + 
@@ -97,14 +97,18 @@ var getZahtjevi = function() {
 
             for (var i = vanredna.length - 1; i >= 0; i--) {
                 let t1 = poklapanjeVremenaImpl(vrijemePocetak, vrijemeKraj, vanredna[i]['pocetak'], vanredna[i]['kraj']);
-                let dan2 = new Date(vanredna[i]['datum']);
-                //console.log(dan2.toString());
-                let dan3 = ((dan2.getDay() + 6) % 7);
-                let t2 = (dan-1) == dan2;
+                let parametri = vanredna[i]['datum'].split(".");
+                let dat = new Date(+parametri[2], parametri[1] - 1, +parametri[0]);
+                let dan3 = ((dat.getDay() + 6) % 7);
+                if(obj.redovni) {
+                    var t2 = redniDan == dan3;
+                } else {
+                    var t2 = dan == dat.getDate();
+                }
                 let t3 = trenutnaSala == vanredna[i]['naziv'];
                 if(t1 && t2  && t3) {
                     callback("Nije moguće rezervisati salu " + trenutnaSala + 
-                            " za navedeni datum " + dan + '/' + currentMonth + 
+                            " za navedeni datum " + dan + '/' + (currentMonth+1) + 
                             '/' + currentYear + " i termin od " +
                              vrijemePocetak + " do "+ vrijemeKraj +"! Salu je zauzeo " + 
                              vanredna[i]['uloga'] + " " + vanredna[i]['ime'] + 

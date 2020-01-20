@@ -37,26 +37,32 @@ var Pozivi = (function(){
             for (var i = redovna.length - 1; i >= 0; i--) {
                 let semestar = Semestar(currentMonth);
                 let t1 = redniDan == redovna[i]['dan'];
-                let t2 = trenutnaSala == redovna[i]['naziv'] ;
+                let t2 = trenutnaSala == redovna[i]['naziv'];
                 let t3 = semestar == redovna[i]['semestar'].toLowerCase();
                 let t4 = poklapanjeVremenaImpl(vrijemePocetak, vrijemeKraj, redovna[i]['pocetak'], redovna[i]['kraj']);
                 if(t1 && t2 && t3 && t4) {
                     return "Nije moguće rezervisati salu " + trenutnaSala + 
-                            " za navedeni datum " + dan + '/' + currentMonth + '/' + currentYear + " i termin od " +
+                            " za navedeni datum " + dan + '/' + (currentMonth+1) + '/' + currentYear + " i termin od " +
                              vrijemePocetak + " do "+ vrijemeKraj +"!";
                 }
             }
 
             for (var i = vanredna.length - 1; i >= 0; i--) {
                 let t1 = poklapanjeVremenaImpl(vrijemePocetak, vrijemeKraj, vanredna[i]['pocetak'], vanredna[i]['kraj']);
-                let dan2 = new Date(vanredna[i]['datum']);
-                //console.log(dan2.toString());
-                let dan3 = ((dan2.getDay() + 6) % 7);
-                let t2 = (dan-1) == dan2;
+                let parametri = vanredna[i]['datum'].split(".");
+                let dat = new Date(+parametri[2], parametri[1] - 1, +parametri[0]);
+                let dan3 = ((dat.getDay() + 6) % 7);
+                if(checked) {
+                    var t2 = redniDan == dan3;
+                } else {
+                    var t2 = dan == dat.getDate();
+                }
+                
+                
                 let t3 = trenutnaSala == vanredna[i]['naziv'];
                 if(t1 && t2  && t3) {
                     return "Nije moguće rezervisati salu " + trenutnaSala + " za navedeni datum " 
-                            + dan + '/' + currentMonth + '/' + currentYear + " i termin od " +
+                            + dan + '/' + (currentMonth+1) + '/' + currentYear + " i termin od " +
                              vrijemePocetak + " do "+ vrijemeKraj +"!";
                 }
             }
