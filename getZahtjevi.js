@@ -1,5 +1,52 @@
 var getZahtjevi = function() {
-
+    var getMjestaOsobljaImpl = function(db, callback) {
+        const options = {year: 'numeric', month: '2-digit', day: '2-digit' };
+        var datum = new Date();
+        var datumStrings = datum.toLocaleDateString('bs-BS', options).split("/");
+        var actual = datumStrings[1] + "." + datumStrings[0] + "." + datumStrings[2];
+        var lokacije = {}
+        db.rezervacija.findAll({
+            raw:true, 
+            attributes: [], 
+            include: [
+                {
+                    model: db.termin,
+                    as:'TerminRez', 
+                    where:{
+                        datum : actual
+                    }, 
+                    attributes: [
+                        'pocetak', 'kraj'
+                    ]
+                }, 
+                {
+                    model: db.sala, 
+                    as:'RezervacijaSala',
+                    attributes: ['naziv']
+                }, 
+                {
+                    model:db.osoba, 
+                    as:'RezervacijaOsobe',
+                    attributes: [
+                        //db.osoba.sequelize.literal("ime || ' ' || prezime"), 'predavac' 
+                        'ime', 'prezime', 'uloga'       
+                    ]
+                }
+            ]
+        }).then(function(set) {
+            set.forEach(function(obj) {
+                let time1 = JSON.stringify(obj['TerminRez.pocetak']).replace(/\"/g, "");
+                let time2 = JSON.stringify(obj['TerminRez.kraj']).replace(/\"/g, "");
+                let pocetniDatum = Date.parse('01/01/2011 ' + time1);
+                let krajnjiDatum = Date.parse('01/01/2011 ' + time2); 
+                datum = Date.parse('01/01/2011 ' + datum.getHours()+":"+datum.getMinutes()+":"+datum.getSeconds());
+                if(!(datum>=pocetniDatum && datum<=krajnjiDatum)) {
+                    obj.naziv = "kancelarija";
+                }
+            });
+            callback(set);
+        })
+    }
     var getZauzecaImpl = function(db, callback) {
         //const db = require('./db.js');
         var redovna = [], vanredna = [], sva = {};
@@ -25,7 +72,7 @@ var getZahtjevi = function() {
                     as:'RezervacijaOsobe',
                     attributes: [
                         //db.osoba.sequelize.literal("ime || ' ' || prezime"), 'predavac' 
-                        'ime', 'prezime'        
+                        'ime', 'prezime', 'uloga'       
                     ]
                 }
             ]
@@ -71,8 +118,19 @@ var getZahtjevi = function() {
     }
 
     var provjeriZauzecaImpl = function(redovna, vanredna, obj, callback) {
-        let parametri = obj.datum.split(".");
-        let dat = new Date(+parametri[2], parametri[1] - 1, +parametri[0]);
+        let parametri = JSON.stringify(obj.datum).replace(/\"/g, "").split(".");
+        let dat = new Date();
+                
+        let y = +parametri[2];
+        dat.setFullYear(y);
+
+        let month = parametri[1]-1;
+        dat.setMonth(month);
+
+        let day = +parametri[0];
+        dat.setDate(day);
+        
+
         var dan = dat.getDate();
         var currentMonth = dat.getMonth();
         var currentYear = dat.getYear() + 1900;
@@ -99,13 +157,24 @@ var getZahtjevi = function() {
 
             for (var i = vanredna.length - 1; i >= 0; i--) {
                 let t1 = poklapanjeVremenaImpl(vrijemePocetak, vrijemeKraj, vanredna[i]['pocetak'], vanredna[i]['kraj']);
-                let parametri = vanredna[i]['datum'].split(".");
-                let dat = new Date(+parametri[2], parametri[1] - 1, +parametri[0]);
-                let dan3 = ((dat.getDay() + 6) % 7);
+                let parametri2 = vanredna[i]['datum'].split(".");
+                let d = new Date(dat);
+
+                let y = +parametri2[2];
+                d.setFullYear(y);
+
+                let month = parametri2[1]-1;
+                d.setMonth(month);
+
+                let day = +parametri2[0];
+                d.setDate(day);
+
+                let dan3 = ((d.getDay() + 6) % 7);
+
                 if(obj.redovni) {
                     var t2 = redniDan == dan3;
                 } else {
-                    var t2 = dan == dat.getDate();
+                    var t2 = dat.valueOf() == d.valueOf();
                 }
                 let t3 = trenutnaSala == vanredna[i]['naziv'];
                 if(t1 && t2  && t3) {
@@ -141,9 +210,20 @@ var getZahtjevi = function() {
         return "";
     }
 
+    function poklapajuSeDatumi(date1Pocetak, date1Kraj, date2Pocetak, date2Kraj) {
+    if(date1Pocetak > date2Pocetak && date1Pocetak < date2Kraj) return true;
+    if(date1Kraj > date2Pocetak && date1Kraj < date2Kraj) return true;
+    if(date2Pocetak > date1Pocetak && date2Pocetak < date1Kraj) return true;
+    if(date2Kraj > date1Pocetak && date2Kraj < date1Kraj) return true;
+    if(date1Pocetak == date2Pocetak) return true;
+    if(date1Kraj == date2Kraj) return true;
+    return false;
+}
+
     return {
         getZauzeca : getZauzecaImpl,
-        provjeriZauzeca : provjeriZauzecaImpl
+        provjeriZauzeca : provjeriZauzecaImpl,
+        getMjestaOsoblja : getMjestaOsobljaImpl
     }
 }();
 

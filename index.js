@@ -27,6 +27,9 @@ app.get("/sale.html",function(req,res){
 app.get("/unos.html",function(req,res){
     res.sendFile(__dirname+"/html/unos.html");
 });
+app.get("/osobe.html",function(req,res){
+    res.sendFile(__dirname+"/html/osobe.html");
+});
 
 
 //css
@@ -48,6 +51,9 @@ app.get("/sale.css", function(req,res) {
 app.get("/unos.css", function(req,res) {
     res.sendFile(__dirname+"/css/unos.css");
 });
+app.get("/osobe.css", function(req,res) {
+    res.sendFile(__dirname+"/css/osobe.css");
+});
 
 //js
 app.get("/kalendar.js", function(req,res) {
@@ -61,6 +67,9 @@ app.get("/rezervacija.js", function(req,res) {
 });
 app.get("/pocetna.js", function(req,res) {
     res.sendFile(__dirname+"/js/pocetna.js");
+});
+app.get("/osobe.js", function(req,res) {
+    res.sendFile(__dirname+"/js/osobe.js");
 });
 
 //pics
@@ -181,6 +190,14 @@ app.get("/osoblje", function(req, res) {
     db.osoba.findAll({raw:true, attributes: ['ime', 'prezime', 'uloga']}).then(function(set) {
         res.writeHead(200, {'Content-Type': 'application/json'});
         res.write(JSON.stringify(set));
+        res.send();
+    });
+})
+
+app.get("/mjestoOsoblja", function(req, res) {
+    getZahtjevi.getMjestaOsoblja(db, function(data) {
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.write(JSON.stringify(data));
         res.send();
     });
 })

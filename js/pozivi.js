@@ -4,7 +4,6 @@ var Pozivi = (function(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                //alert(this.responseText);
                 podaci = this.responseText;
             }
         };
@@ -19,6 +18,10 @@ var Pozivi = (function(){
         let date1Kraj = parseInt(v2);
         let date2Pocetak = parseInt(v3);
         let date2Kraj = parseInt(v4);
+        console.log(date1Pocetak);
+        console.log(date1Kraj);
+        console.log(date2Pocetak);
+        console.log(date2Kraj);
         if(date1Pocetak > date2Pocetak && date1Pocetak < date2Kraj) return true;
         if(date1Kraj > date2Pocetak && date1Kraj < date2Kraj) return true;
         if(date2Pocetak > date1Pocetak && date2Pocetak < date1Kraj) return true;
@@ -28,44 +31,7 @@ var Pozivi = (function(){
         return false;
     }
     function dodajZauzeceImpl(vrijemePocetak, vrijemeKraj, checked, dan, redniDan) {
-            let date = Date.parse(dan + '/' + currentMonth + '/' + currentYear);
-        
-            //let datumStart = Date.parse(dan + '/' + currentMonth + '/' + currentYear +' ' + vrijemePocetak + ':00');
-            //let pocetniZauzetiDatum = Date.parse('01/01/2011 ' + periodicnaZauzeca[i].pocetak + ':00');
-            //let krajniZauzetiDatum = Date.parse('01/01/2011 ' + periodicnaZauzeca[i].kraj + ':00');
-/*
-            for (var i = redovna.length - 1; i >= 0; i--) {
-                let semestar = Semestar(currentMonth);
-                let t1 = redniDan == redovna[i]['dan'];
-                let t2 = trenutnaSala == redovna[i]['naziv'];
-                let t3 = semestar == redovna[i]['semestar'].toLowerCase();
-                let t4 = poklapanjeVremenaImpl(vrijemePocetak, vrijemeKraj, redovna[i]['pocetak'], redovna[i]['kraj']);
-                if(t1 && t2 && t3 && t4) {
-                    return "Nije moguće rezervisati salu " + trenutnaSala + 
-                            " za navedeni datum " + dan + '/' + (currentMonth+1) + '/' + currentYear + " i termin od " +
-                             vrijemePocetak + " do "+ vrijemeKraj +"!";
-                }
-            }
-
-            for (var i = vanredna.length - 1; i >= 0; i--) {
-                let t1 = poklapanjeVremenaImpl(vrijemePocetak, vrijemeKraj, vanredna[i]['pocetak'], vanredna[i]['kraj']);
-                let parametri = vanredna[i]['datum'].split(".");
-                let dat = new Date(+parametri[2], parametri[1] - 1, +parametri[0]);
-                let dan3 = ((dat.getDay() + 6) % 7);
-                if(checked) {
-                    var t2 = redniDan == dan3;
-                } else {
-                    var t2 = dan == dat.getDate();
-                }
-                
-                
-                let t3 = trenutnaSala == vanredna[i]['naziv'];
-                if(t1 && t2  && t3) {
-                    return "Nije moguće rezervisati salu " + trenutnaSala + " za navedeni datum " 
-                            + dan + '/' + (currentMonth+1) + '/' + currentYear + " i termin od " +
-                             vrijemePocetak + " do "+ vrijemeKraj +"!";
-                }
-            }*/
+            let date = new Date(currentYear, currentMonth, dan);
             var e = document.getElementById("osoblje")
             var osoba = e.options[e.selectedIndex].text;
             let string = osoba.split(" ");
@@ -75,7 +41,7 @@ var Pozivi = (function(){
             if(checked) {
                 var tempVanredno = {
                     dan : redniDan,
-                    datum : dan + '.' + (currentMonth+1) + '.' + currentYear, //
+                    datum : date.toDMY(), //
                     semestar: Semestar(currentMonth).toLowerCase(), 
                     pocetak : vrijemePocetak, 
                     kraj : vrijemeKraj, 
@@ -89,7 +55,7 @@ var Pozivi = (function(){
             } else {
                 var tempVanredno = {
                     dan : redniDan, //
-                    datum : dan + '.' + (currentMonth + 1) + '.' + currentYear, 
+                    datum : date.toDMY(), 
                     pocetak : vrijemePocetak, 
                     kraj : vrijemeKraj, 
                     naziv : trenutnaSala, 
@@ -100,7 +66,6 @@ var Pozivi = (function(){
                 }
                 //jsonObj['vanredna'].push(tempVanredno);
             }
-            
 
 
             $.ajax({
@@ -178,6 +143,39 @@ var Pozivi = (function(){
         xhttp.send();
         return podaci;
     }
+    (function() {
+        Date.prototype.toDMY = Date_toDMY;
+        function Date_toDMY() {
+            var year, month, day;
+            year = String(this.getFullYear());
+            month = String(this.getMonth() + 1);
+            if (month.length == 1) {
+                month = "0" + month;
+            }
+            day = String(this.getDate());
+            if (day.length == 1) {
+                day = "0" + day;
+            }
+            return day + "." + month + "." + year;
+        }
+        Date.prototype.toTime = Date_toTime;
+        function Date_toTime() {
+            var h, m, s;
+            h = String(this.getHours());
+            if (h.length == 1) {
+                h = "0" + h;
+            }
+            m = String(this.getMinutes());
+            if (m.length == 1) {
+                m = "0" + m;
+            }
+            s= String(this.getSeconds());
+            if (s.length == 1) {
+                s = "0" + s;
+            }
+            return h + ":" + m + ":" + s;
+        }
+    })();
 
     return {
         dajZauzecaJSON : dajZauzecaJSONImpl,

@@ -1,0 +1,5 @@
+@import "http://localhost:8080/buttons.css";
+@import "http://localhost:8080/meni.css";
+*{
+	box-sizing: border-box;
+}
