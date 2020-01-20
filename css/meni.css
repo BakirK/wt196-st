@@ -42,7 +42,7 @@
 	position: relative;
 	width: 24px; /*font je duplo manji pa kad je
 					 margin menija -1em, 50% slike je preko menija*/
-	/*height: 24px;*/ /*height se skalira, posto je 
+	/* height: 24px; */ /*height se skalira, posto je 
 						simetricno bude jednako sirini tj 24x24 px*/
 	margin: 0 auto;
 }

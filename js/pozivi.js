@@ -14,14 +14,21 @@ var Pozivi = (function(){
         return podaci;
     }
     function poklapanjeVremenaImpl(v1, v2, v3, v4) {
-        let date1Pocetak = parseInt(v1);
+        var v1param = v1.split(":");
+        var date1Pocetak = new Date(2020,0,1,+v1param[0],+v1param[1]).valueOf();
+
+        var v2param = v2.split(":");
+        var date1Kraj = new Date(2020,0,1,+v2param[0],+v2param[1]).valueOf();
+
+        var v3param = v3.split(":");
+        var date2Pocetak = new Date(2020,0,1,+v3param[0],+v3param[1]).valueOf();
+
+        var v4param = v4.split(":");
+        var date2Kraj = new Date(2020,0,1,+v4param[0],+v4param[1]).valueOf();
+        /*let date1Pocetak = parseInt(v1);
         let date1Kraj = parseInt(v2);
         let date2Pocetak = parseInt(v3);
-        let date2Kraj = parseInt(v4);
-        console.log(date1Pocetak);
-        console.log(date1Kraj);
-        console.log(date2Pocetak);
-        console.log(date2Kraj);
+        let date2Kraj = parseInt(v4);*/
         if(date1Pocetak > date2Pocetak && date1Pocetak < date2Kraj) return true;
         if(date1Kraj > date2Pocetak && date1Kraj < date2Kraj) return true;
         if(date2Pocetak > date1Pocetak && date2Pocetak < date1Kraj) return true;
@@ -66,7 +73,6 @@ var Pozivi = (function(){
                 }
                 //jsonObj['vanredna'].push(tempVanredno);
             }
-
 
             $.ajax({
                 contentType: 'application/json',
@@ -143,6 +149,22 @@ var Pozivi = (function(){
         xhttp.send();
         return podaci;
     }
+    function dajLokacijeOsobljaImpl(callback) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:8080/mjestoOsoblja',
+            success: function(data, status, xhr){
+                if(xhr.status == 200)  {
+                    callback(data);
+                }
+            },
+            error: function(data, status, xhr){
+                alert(data.responseText);
+            },
+        });
+    }
+
+    //custom metode za date
     (function() {
         Date.prototype.toDMY = Date_toDMY;
         function Date_toDMY() {
@@ -181,6 +203,7 @@ var Pozivi = (function(){
         dajZauzecaJSON : dajZauzecaJSONImpl,
         dodajZauzece : dodajZauzeceImpl,
         gibePic : gibePicImpl,
-        dajOsobljeJSON : dajOsobljeJSONImpl
+        dajOsobljeJSON : dajOsobljeJSONImpl,
+        dajLokacijeOsoblja : dajLokacijeOsobljaImpl
     }
 }());

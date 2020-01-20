@@ -34,7 +34,7 @@ function previous() {
 function Semestar(month) {
     if ((month >= 9 && month <= 11) || month == 0) return "zimski";
     if(month >= 1 && month <= 5) return "ljetni";
-    return "";
+    return "medjusemestar";
 }
 
 function poklapajuSeDatumi(date1Pocetak, date1Kraj, date2Pocetak, date2Kraj) {
