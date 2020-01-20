@@ -62,24 +62,34 @@ var Pozivi = (function(){
             }
             var e = document.getElementById("osoblje")
             var osoba = e.options[e.selectedIndex].text;
+            let string = osoba.split(" ");
+            let ime = string[0];
+            let prezime = string[1];
+            let uloga = string[3];
             if(checked) {
                 var tempVanredno = {
-                        dan : redniDan,
-                        semestar: Semestar(currentMonth).toLowerCase(), 
-                        pocetak : vrijemePocetak, 
-                        kraj : vrijemeKraj, 
-                        naziv : trenutnaSala, 
-                        predavac : osoba,
-                        redovni : true
-                    }
-                //jsonObj['redovna'].push(tempVanredno);
-            } else {
-                var tempVanredno = {
-                    datum : dan + '.' + (currentMonth+1) + '.' + currentYear, 
+                    dan : redniDan,
+                    datum : dan + '.' + (currentMonth+1) + '.' + currentYear, //
+                    semestar: Semestar(currentMonth).toLowerCase(), 
                     pocetak : vrijemePocetak, 
                     kraj : vrijemeKraj, 
                     naziv : trenutnaSala, 
-                    predavac : osoba,
+                    ime : ime,
+                    prezime : prezime,
+                    uloga : uloga, 
+                    redovni : true
+                }
+                //jsonObj['redovna'].push(tempVanredno);
+            } else {
+                var tempVanredno = {
+                    dan : redniDan, //
+                    datum : dan + '.' + (currentMonth + 1) + '.' + currentYear, 
+                    pocetak : vrijemePocetak, 
+                    kraj : vrijemeKraj, 
+                    naziv : trenutnaSala, 
+                    ime : ime,
+                    prezime : prezime,
+                    uloga : uloga,
                     redovni : false
                 }
                 //jsonObj['vanredna'].push(tempVanredno);
@@ -92,13 +102,19 @@ var Pozivi = (function(){
                 //data: JSON.stringify(jsonObj),
                 data: JSON.stringify(tempVanredno),
                 dataType: 'json',
-                success: function(data){
-                    //ucitajJSONPodatke();
-                    //obojiPrviPut();
-                    jsonObj = JSON.parse(data);
-                    redovna = jsonObj['redovna'];
-                    vanredna = jsonObj['vanredna'];
-                    Kalendar.ucitajPodatke(redovna, vanredna);
+                success: function(data, status, xhr){
+                    if(xhr.status == 200)  {
+                        //console.log(data);
+                        let tempObj = data;
+                        redovna = tempObj['redovna'];
+                        vanredna = tempObj['vanredna'];
+                        Kalendar.ucitajPodatke(redovna, vanredna);
+                        obojiPrviPut();
+                    } else if (xhr.status == 409) {
+                        alert(data.toString());
+                    } else if (xhr.status == 400) {
+                        alert(data.toString());
+                    }
                 },
                 error: function(){
                     alert("Server ugasen!?");

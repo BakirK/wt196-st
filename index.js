@@ -96,20 +96,83 @@ app.post("/json", function(req,res) {
     /*fs.writeFile(__dirname+'/zauzeca.json', JSON.stringify(req.body), function(){
         console.log('Uspjesno dodano zauzece');
     });*/
-    var obj = req.body;
-    /*if(obj.redovni) {
-
-    } else {
-
-    }*/
-    //console.log('got it');
-    console.log(JSON.stringify(req.body));
-
-
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    getZahtjevi.getZauzeca(db, function(str) {
-      console.log(str);
-      res.end(str);
+    const obj = req.body;
+    var zauzeca;
+    getZahtjevi.getZauzeca(db, function(data) {
+        jsonObj = JSON.parse(data);
+        redovna = jsonObj['redovna'];
+        vanredna = jsonObj['vanredna'];
+        getZahtjevi.provjeriZauzeca(redovna, vanredna, obj, function(data) {
+            if(data===1) {
+                //nije zauzeto
+                if(obj.redovni) {
+                    var datum = null;
+                    var semestar = obj.semestar;
+                    var dan = obj.dan;
+                } else {
+                    var datum = obj.datum;
+                    var semestar = null;
+                    var dan = null;
+                }
+                db.osoba.findOne(
+                    {
+                        where:{
+                            ime:obj.ime, 
+                            prezime:obj.prezime, 
+                            uloga:obj.uloga
+                        }
+                    }
+                ).then(function(osoba){
+                    if(osoba != null) {
+                        db.sala.findOne(
+                            {   
+                                where:{
+                                    naziv: obj.naziv
+                                }
+                            }
+                        ).then(function(sala) {
+                            if(sala != null) {
+                                db.termin.create(
+                                    {
+                                        redovni : obj.redovni,
+                                        dan : dan,
+                                        datum : datum,
+                                        semestar : semestar,
+                                        pocetak : obj.pocetak,
+                                        kraj : obj.kraj
+                                    }
+                                ).then(function(termin) {
+                                    db.rezervacija.create(
+                                        {
+                                            termin: termin.id,
+                                            sala: sala.id,
+                                            osoba : osoba.id
+                                        }   
+                                    ).then(function(rezerv){
+                                        res.writeHead(200, {'Content-Type': 'application/json'});
+                                        getZahtjevi.getZauzeca(db, function(str) {
+                                            res.end(str);
+                                            res.send;
+                                        });
+                                    })
+                                })
+                            } else {
+                                //nije pronadjena sala
+                                res.status(400).send('Osoba ili sala nije pronadjena');
+                            }
+                        });
+                    } else {
+                        //nije pronadjena osoba
+                        res.status(400).send('Osoba ili sala nije pronadjena');
+                    }    
+                });
+            }
+             else {
+                //jeste zauzeto
+                res.writeHead(409, {'Content-Type': 'text/html'});
+                res.end(data);
+             }
+        });
     });
 });
 
