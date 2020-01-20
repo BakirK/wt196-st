@@ -39,7 +39,7 @@ var Pozivi = (function(){
                 let t1 = redniDan == redovna[i]['dan'];
                 let t2 = trenutnaSala == redovna[i]['naziv'] ;
                 let t3 = semestar == redovna[i]['semestar'].toLowerCase();
-                let t4 =  poklapanjeVremenaImpl(vrijemePocetak, vrijemeKraj, redovna[i]['pocetak'], redovna[i]['kraj']);
+                let t4 = poklapanjeVremenaImpl(vrijemePocetak, vrijemeKraj, redovna[i]['pocetak'], redovna[i]['kraj']);
                 if(t1 && t2 && t3 && t4) {
                     return "Nije moguće rezervisati salu " + trenutnaSala + 
                             " za navedeni datum " + dan + '/' + currentMonth + '/' + currentYear + " i termin od " +
@@ -49,7 +49,10 @@ var Pozivi = (function(){
 
             for (var i = vanredna.length - 1; i >= 0; i--) {
                 let t1 = poklapanjeVremenaImpl(vrijemePocetak, vrijemeKraj, vanredna[i]['pocetak'], vanredna[i]['kraj']);
-                let t2 = (date == Date.parse(vanredna[i]['datum']));
+                let dan2 = new Date(vanredna[i]['datum']);
+                //console.log(dan2.toString());
+                let dan3 = ((dan2.getDay() + 6) % 7);
+                let t2 = (dan-1) == dan2;
                 let t3 = trenutnaSala == vanredna[i]['naziv'];
                 if(t1 && t2  && t3) {
                     return "Nije moguće rezervisati salu " + trenutnaSala + " za navedeni datum " 
@@ -57,27 +60,45 @@ var Pozivi = (function(){
                              vrijemePocetak + " do "+ vrijemeKraj +"!";
                 }
             }
+            var e = document.getElementById("osoblje")
+            var osoba = e.options[e.selectedIndex].text;
             if(checked) {
-                let tempVanredno = {
-                    dan : redniDan, semestar: Semestar(currentMonth).toLowerCase(), pocetak : vrijemePocetak, kraj : vrijemeKraj, naziv : trenutnaSala, predavac : ""
+                var tempVanredno = {
+                        dan : redniDan,
+                        semestar: Semestar(currentMonth).toLowerCase(), 
+                        pocetak : vrijemePocetak, 
+                        kraj : vrijemeKraj, 
+                        naziv : trenutnaSala, 
+                        predavac : osoba,
+                        redovni : true
                     }
-                jsonObj['redovna'].push(tempVanredno);
+                //jsonObj['redovna'].push(tempVanredno);
             } else {
-                let tempVanredno = {
-                datum : dan + '.' + (currentMonth+1) + '.' + currentYear, pocetak : vrijemePocetak, kraj : vrijemeKraj, naziv : trenutnaSala, predavac : ""
+                var tempVanredno = {
+                    datum : dan + '.' + (currentMonth+1) + '.' + currentYear, 
+                    pocetak : vrijemePocetak, 
+                    kraj : vrijemeKraj, 
+                    naziv : trenutnaSala, 
+                    predavac : osoba,
+                    redovni : false
                 }
-                jsonObj['vanredna'].push(tempVanredno);
+                //jsonObj['vanredna'].push(tempVanredno);
             }
             
 
 
             $.ajax({
                 contentType: 'application/json',
-                data: JSON.stringify(jsonObj),
+                //data: JSON.stringify(jsonObj),
+                data: JSON.stringify(tempVanredno),
                 dataType: 'json',
                 success: function(data){
-                    ucitajJSONPodatke();
-                    obojiPrviPut();
+                    //ucitajJSONPodatke();
+                    //obojiPrviPut();
+                    jsonObj = JSON.parse(data);
+                    redovna = jsonObj['redovna'];
+                    vanredna = jsonObj['vanredna'];
+                    Kalendar.ucitajPodatke(redovna, vanredna);
                 },
                 error: function(){
                     alert("Server ugasen!?");
@@ -89,7 +110,7 @@ var Pozivi = (function(){
     }
 
     function gibePicImpl(imgName, imgTag, dataUcitanih) {
-        console.log(imgName);
+        //console.log(imgName);
         $.ajax({
           type: "GET",
           url: "http://localhost:8080/" + imgName,

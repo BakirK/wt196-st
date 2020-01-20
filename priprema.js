@@ -82,7 +82,7 @@ function inicializacija(){
         if (day.length == 1) {
             day = "0" + day;
         }
-        return year + "-" + month + "-" + day;
+        return day + "." + month + "." + year;
     }
     Date.prototype.toTime = Date_toTime;
     function Date_toTime() {

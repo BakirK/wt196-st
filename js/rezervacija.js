@@ -24,10 +24,8 @@ function dodajListener() {
                 let checked = $('#tick').is(':checked');
                 let temp = Pozivi.dodajZauzece(vrijemePocetak, vrijemeKraj, checked, dan, redniDan-1);
                 if(temp) alert(temp);
-                else {
-                    ucitajJSONPodatke();
-                    obojiPrviPut();
-                }
+                ucitajJSONPodatke();
+                obojiPrviPut();
             }
         }, false);
     }
@@ -39,17 +37,11 @@ window.onload = function napuniSelect() {
     let index = 0;
     for (var i = 0; i < jsonObj.length; i++) {
         let obj = jsonObj[i];
-        console.log('aa');
         var opt = document.createElement("option");
         opt.value= index;
         let value = JSON.stringify(obj.ime).replace(/"/g,"") + ' ' + JSON.stringify(obj.prezime).replace(/"/g,"")+ ' - ' + JSON.stringify(obj.uloga).replace(/"/g,"");
-        opt.innerHTML = value; // whatever property it has
-
-        // then append it to the select element
+        opt.innerHTML = value;
         selectField.appendChild(opt);
         index++;
     }
-    /*for(obj in jsonObj) {
-        
-    }*/
 }
