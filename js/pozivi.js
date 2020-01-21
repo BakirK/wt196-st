@@ -163,7 +163,7 @@ var Pozivi = (function(){
             },
             error: function(data, status, xhr){
                 alert(data.responseText);
-            },
+            }
         });
     }
 
