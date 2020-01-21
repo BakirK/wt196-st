@@ -7,8 +7,6 @@ var Pozivi = (function(){
                 podaci = this.responseText;
             }
         };
-        //callback iskljucen jer treba da proslijedi podatke od servera
-        //nazad ka klijentu sto nije moguce sa callbackom
         xhttp.open("GET", "http://localhost:8080/zauzeca.json", false);
         xhttp.send();
         return podaci;
@@ -25,10 +23,7 @@ var Pozivi = (function(){
 
         var v4param = v4.split(":");
         var date2Kraj = new Date(2020,0,1,+v4param[0],+v4param[1]).valueOf();
-        /*let date1Pocetak = parseInt(v1);
-        let date1Kraj = parseInt(v2);
-        let date2Pocetak = parseInt(v3);
-        let date2Kraj = parseInt(v4);*/
+
         if(date1Pocetak > date2Pocetak && date1Pocetak < date2Kraj) return true;
         if(date1Kraj > date2Pocetak && date1Kraj < date2Kraj) return true;
         if(date2Pocetak > date1Pocetak && date2Pocetak < date1Kraj) return true;
@@ -49,7 +44,7 @@ var Pozivi = (function(){
                 var tempVanredno = {
                     dan : redniDan,
                     datum : date.toDMY(), //
-                    semestar: Semestar(currentMonth).toLowerCase(), 
+                    semestar: Kalendar.Semestar(currentMonth).toLowerCase(), 
                     pocetak : vrijemePocetak, 
                     kraj : vrijemeKraj, 
                     naziv : trenutnaSala, 
@@ -104,7 +99,6 @@ var Pozivi = (function(){
     }
 
     function gibePicImpl(imgName, imgTag, dataUcitanih) {
-        //console.log(imgName);
         $.ajax({
           type: "GET",
           url: "http://localhost:8080/" + imgName,
@@ -139,16 +133,27 @@ var Pozivi = (function(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                //alert(this.responseText);
                 podaci = this.responseText;
             }
         };
-        //callback iskljucen jer treba da proslijedi podatke od servera
-        //nazad ka klijentu sto nije moguce sa callbackom
         xhttp.open("GET", "http://localhost:8080/osoblje", false);
         xhttp.send();
         return podaci;
     }
+    function dajSaleJSONImpl() {
+        var podaci;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //alert(this.responseText);
+                podaci = this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://localhost:8080/sale", false);
+        xhttp.send();
+        return podaci;
+    }
+
     function dajLokacijeOsobljaImpl(callback) {
         $.ajax({
             type: 'GET',
@@ -204,6 +209,7 @@ var Pozivi = (function(){
         dodajZauzece : dodajZauzeceImpl,
         gibePic : gibePicImpl,
         dajOsobljeJSON : dajOsobljeJSONImpl,
-        dajLokacijeOsoblja : dajLokacijeOsobljaImpl
+        dajLokacijeOsoblja : dajLokacijeOsobljaImpl,
+        dajSaleJSON : dajSaleJSONImpl
     }
 }());

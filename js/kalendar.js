@@ -1,55 +1,20 @@
-var today = new Date();
-var currentMonth = today.getMonth();
-var currentYear = today.getYear() + 1900;
-var months = ["Januar", "Februar", "Mart", "April", "Maj", "Juni", "Juli", "August", "Septembar", "Oktobar", "Novembar", "Decembar"];
-var trenutnaSala;
-var sala;
-var pocetakVrijeme, krajVrijeme;
-if(currentMonth == 11) { //decembar
-    document.querySelector(".next").disabled = true;
-} else if(currentMonth == 0) {
-    document.querySelector(".prev").disabled = true;
-}
-function next() {
-    currentMonth = (currentMonth + 1) % 12;
-    if(currentMonth == 11) { //decembar
-    	document.querySelector(".next").disabled = true;
-    } else if(currentMonth == 1) { //februar
-    	document.querySelector(".prev").disabled = false;
-	}
-	
-	Kalendar.iscrtajKalendar(document.querySelector(".dateGrid"), currentMonth);
-}
-
-function previous() {
-    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-    if(currentMonth == 0) {
-    	document.querySelector(".prev").disabled = true;
-    } else if(currentMonth == 10) {//novembar
-    	document.querySelector(".next").disabled = false;
-    }
-    Kalendar.iscrtajKalendar(document.querySelector(".dateGrid"), currentMonth);
-}
-
-function Semestar(month) {
-    if ((month >= 9 && month <= 11) || month == 0) return "zimski";
-    if(month >= 1 && month <= 5) return "ljetni";
-    return "medjusemestar";
-}
-
-function poklapajuSeDatumi(date1Pocetak, date1Kraj, date2Pocetak, date2Kraj) {
-    if(date1Pocetak > date2Pocetak && date1Pocetak < date2Kraj) return true;
-    if(date1Kraj > date2Pocetak && date1Kraj < date2Kraj) return true;
-    if(date2Pocetak > date1Pocetak && date2Pocetak < date1Kraj) return true;
-    if(date2Kraj > date1Pocetak && date2Kraj < date1Kraj) return true;
-    if(date1Pocetak == date2Pocetak) return true;
-    if(date1Kraj == date2Kraj) return true;
-    return false;
-}
-
 var Kalendar = (function(){
     var periodicnaZauzeca, vanrednaZauzeca;
     let ucitani = false;
+    function Semestar(month) {
+        if ((month >= 9 && month <= 11) || month == 0) return "zimski";
+        if(month >= 1 && month <= 5) return "ljetni";
+        return "raspust";
+    }
+    function poklapajuSeDatumi(date1Pocetak, date1Kraj, date2Pocetak, date2Kraj) {
+        if(date1Pocetak > date2Pocetak && date1Pocetak < date2Kraj) return true;
+        if(date1Kraj > date2Pocetak && date1Kraj < date2Kraj) return true;
+        if(date2Pocetak > date1Pocetak && date2Pocetak < date1Kraj) return true;
+        if(date2Kraj > date1Pocetak && date2Kraj < date1Kraj) return true;
+        if(date1Pocetak == date2Pocetak) return true;
+        if(date1Kraj == date2Kraj) return true;
+        return false;
+    }
     function obojiZauzecaImpl(kalendarRef, mjesec, sala, pocetak, kraj){
         let pozadine = document.getElementsByClassName("pozadina");
         for (let j = 0; j < pozadine.length; j++) {
@@ -60,7 +25,7 @@ var Kalendar = (function(){
         if (ucitani) {
             let dugmad = document.getElementsByClassName("dugmad");
             for (var i = dugmad.length - 1; i >= 0; i--) {
-                dugmad[i].disabled = false;
+                //dugmad[i].disabled = false;
             }
             for (let i = 0; i < periodicnaZauzeca.length; i++) {
                 if(sala.toLowerCase()  == periodicnaZauzeca[i].naziv.toLowerCase()) {
@@ -77,7 +42,7 @@ var Kalendar = (function(){
                                 poklapajuSeDatumi(pocetniDatum, krajniDatum, pocetniZauzetiDatum, krajniZauzetiDatum)) {
                                 pozadine[j].classList.remove("slobodna");
                                 pozadine[j].classList.add("zauzeta");
-                                dugmad[j].disabled = true;
+                                //dugmad[j].disabled = true;
                             }
                             trenutniDan = (trenutniDan + 1)% 7;
                         }
@@ -100,7 +65,7 @@ var Kalendar = (function(){
                                 poklapajuSeDatumi(pocetniDatum, krajniDatum, pocetniZauzetiDatum, krajniZauzetiDatum)) {
                                 pozadine[j].classList.remove("slobodna");
                                 pozadine[j].classList.add("zauzeta");
-                                dugmad[j].disabled = true;
+                                //dugmad[j].disabled = true;
                             }
                             trenutniDan++;
                         }
@@ -141,11 +106,11 @@ var Kalendar = (function(){
 
     					let buttonDiv = document.createElement("div");
     					buttonDiv.classList.add("buttonDiv");
-    						let dugmeTemp = document.createElement("button");
-                            dugmeTemp.disabled = false;
-                            dugmeTemp.classList.add("dugmad");
-    							dugmeTemp.innerHTML = date;
-                            //dugmeTemp.appendChild(timeTemp);
+						let dugmeTemp = document.createElement("button");
+                        dugmeTemp.disabled = false;
+                        dugmeTemp.classList.add("dugmad");
+						dugmeTemp.innerHTML = date;
+                        //dugmeTemp.appendChild(timeTemp);
                         buttonDiv.appendChild(dugmeTemp);
 
     					let statusDiv = document.createElement("div");            	
@@ -159,59 +124,16 @@ var Kalendar = (function(){
                 }
             }
         }
-        dodajListener();    
     }
     return {
         obojiZauzeca: obojiZauzecaImpl,
         ucitajPodatke: ucitajPodatkeImpl,
-        iscrtajKalendar : iscrtajKalendarImpl
+        iscrtajKalendar : iscrtajKalendarImpl,
+        Semestar : Semestar,
+        poklapajuSeDatumi : poklapajuSeDatumi
     }
 }());
 
 
 
-function obojiPrviPut() {
-    pocetakVrijeme = document.getElementById("pocetakVrijeme");
-    krajVrijeme = document.getElementById("krajVrijeme");
-    let vrijemePocetak = pocetakVrijeme.value.toString();
-    let vrijemeKraj = krajVrijeme.value.toString();
-    Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), currentMonth, trenutnaSala, vrijemePocetak, vrijemeKraj);
-}
 
-document.addEventListener('DOMContentLoaded', function () {
-    Kalendar.iscrtajKalendar(document.querySelector(".dateGrid"), currentMonth);
-
-    sala = document.getElementById("sale");
-    if(sala != null) {
-        trenutnaSala = sala.options[sala.selectedIndex].innerHTML;
-        //listener za promjenu odabira u listi sala
-        sala.addEventListener('change', function() {
-            trenutnaSala = sala.options[sala.selectedIndex].innerHTML;
-            console.log(trenutnaSala);
-        }, false);
-        ucitajJSONPodatke();
-        
-        document.getElementById("provjeriButton").addEventListener('click', function() {
-            obojiPrviPut()
-        }, false);
-
-
-        obojiPrviPut();
-    }
-   
-    
-    document.querySelector(".prev").addEventListener( "click", function( ev ) {
-        previous();
-        if(sala != null) {
-            obojiPrviPut();
-        }
-    }, false);
-    
-
-    document.querySelector(".next").addEventListener( "click", function( ev ) {
-        next();
-        if(sala != null) {
-            obojiPrviPut();
-        }
-    }, false);
-});

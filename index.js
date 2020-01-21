@@ -202,4 +202,12 @@ app.get("/mjestoOsoblja", function(req, res) {
     });
 })
 
+app.get("/sale", function(req, res) {
+    db.sala.findAll({raw:true, attributes: ['naziv']}).then(function(set) {
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.write(JSON.stringify(set));
+        res.send();
+    });
+})
+
 app.listen(8080);
