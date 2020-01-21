@@ -1,14 +1,15 @@
 //TESTOVI SE NAPRAVLJENI TAKO DA RADE SA DEFAULT PODACIMA DATIM U POSTAVCI SPIRALE
-
+//async iskljucen jer pojedini testovi zavise od prethodnih
 let assert = chai.assert;
-describe('Pozivi', function() {
+describe('Testovi se trabaju izvrsiti nad bazom sa default podacima', function() {
 
-  describe('dajOsobljeJSON()', function() {
+  describe('GET Osoblje', function() {
 
     it('Broj osoba test', function() {
       $.ajax({
         type: 'GET',
         url: 'http://localhost:8080/osoblje',
+        async : false,
         success: function(data, status, xhr){
           if(xhr.status == 200)  {
             let osobe = data;
@@ -26,6 +27,7 @@ describe('Pozivi', function() {
       $.ajax({
         type: 'GET',
         url: 'http://localhost:8080/osoblje',
+        async : false,
         success: function(data, status, xhr){
           if(xhr.status == 200)  {
             let osobe = data;
@@ -45,11 +47,12 @@ describe('Pozivi', function() {
 
   });
 
-  describe('dajSaleJSON()', function() {
+  describe('GET sale', function() {
     it('Broj sala test', function() {
       $.ajax({
         type: 'GET',
         url: 'http://localhost:8080/sale',
+        async : false,
         success: function(data, status, xhr){
           if(xhr.status == 200)  {
             let sale = data;
@@ -68,6 +71,7 @@ describe('Pozivi', function() {
       $.ajax({
         type: 'GET',
         url: 'http://localhost:8080/sale',
+        async : false,
         success: function(data, status, xhr){
           if(xhr.status == 200)  {
             let sale = data;
@@ -86,11 +90,12 @@ describe('Pozivi', function() {
 
   });
 
-  describe('dajZauzecaJSON()', function() {
+  describe('GET Zauzeca()', function() {
     it('Broj zauzeca test', function() {
       $.ajax({
         type: 'GET',
         url: 'http://localhost:8080/zauzeca.json',
+        async : false,
         success: function(data, status, xhr){
           if(xhr.status == 200)  {
             let zauzeca = data;
@@ -108,11 +113,9 @@ describe('Pozivi', function() {
     });
 
     it('Dodavanje redovnog zauzeca', function() {
-      let zauzeca = JSON.parse(Pozivi.dajZauzecaJSON());
-      let red = zauzeca['redovna'].length;
       let redovno = {
-        "dan" : 5, 
-        "datum" : null, 
+        "dan" : 0, 
+        "datum" : "02.12.2019",
         "semestar" : "zimski",
         "pocetak" : "15:30", 
         "kraj" : "15:50", 
@@ -127,11 +130,49 @@ describe('Pozivi', function() {
         //data: JSON.stringify(jsonObj),
         data: JSON.stringify(redovno),
         dataType: 'json',
+        async : false,
         success: function(data, status, xhr){
           if(xhr.status == 200)  {
             let tempObj = data;
-            redovna = tempObj['redovna'];
-            assert.equal(redovna.length, red+1, 'Dodano redovno zauzece posji');
+            let redovna = tempObj['redovna'];
+            assert.equal(redovna.length, 2, 'Dodano redovno zauzece');
+          }
+        },
+        error: function(data, status, xhr){
+          assert.equal(true, false, 'Greska');
+          console.log(data.responseText);
+        },
+        processData: false,
+        type: 'POST',
+        url: 'http://localhost:8080/json'
+      });
+    });
+
+    it('Dodavanje vanrednog zauzeca', function() {
+      let vanredno = {
+        "dan" : null, 
+        "datum" : "29.02.2020", 
+        "semestar" : null,
+        "pocetak" : "15:30", 
+        "kraj" : "15:50", 
+        "naziv" : "1-15", 
+        "ime" : "Test",
+        "prezime" : "Test",
+        "uloga" : "asistent",
+        "redovni" : false
+      };
+      $.ajax({
+        contentType: 'application/json',
+        //data: JSON.stringify(jsonObj),
+        data: JSON.stringify(vanredno),
+        dataType: 'json',
+        async : false,
+        success: function(data, status, xhr){
+          if(xhr.status == 200)  {
+            let tempObj = data;
+            let redovna = tempObj['vanredna'];
+            assert.equal(redovna.length, 2, 'Dodano vanredno zauzece');
+            console.log('dodano');
           }
         },
         error: function(data, status, xhr){
@@ -148,10 +189,14 @@ describe('Pozivi', function() {
       $.ajax({
         type: 'GET',
         url: 'http://localhost:8080/zauzeca.json',
+        async : false,
         success: function(data, status, xhr){
           if(xhr.status == 200)  {
             let zauzeca = data;
             let red = zauzeca['redovna'].length == 2;
+            console.log('dohvaceno');
+            console.log(zauzeca['redovna'].length);
+            console.log(zauzeca['vanredna'].length);
             let van = zauzeca['vanredna'].length == 2;
             let eq = van && red;
             assert.equal(eq, true, 'Zapisana su u bazu');
@@ -163,6 +208,7 @@ describe('Pozivi', function() {
         }
       });
     });
+  
 
     it('Dodavanje zauzeca u nepostojecu salu', function() {
       let nepostojecaSala = {
@@ -182,6 +228,7 @@ describe('Pozivi', function() {
         //data: JSON.stringify(jsonObj),
         data: JSON.stringify(nepostojecaSala),
         dataType: 'json',
+        async : false,
         success: function(data, status, xhr){
           assert.equal(true, false, 'Greska');
         },
@@ -201,7 +248,7 @@ describe('Pozivi', function() {
         "semestar" : null,
         "pocetak" : "15:15", 
         "kraj" : "15:30", 
-        "naziv" : "1-15", 
+        "naziv" : "1-11", 
         "ime" : "Dostojevski petnaesti", //nepostejece ime
         "prezime" : "Dragujevic Mirko",
         "uloga" : "asistent",
@@ -212,6 +259,7 @@ describe('Pozivi', function() {
         //data: JSON.stringify(jsonObj),
         data: JSON.stringify(nepostojecaOsoba),
         dataType: 'json',
+        async : false,
         success: function(data, status, xhr){
           assert.equal(true, false, 'Greska');
         },
@@ -231,7 +279,7 @@ describe('Pozivi', function() {
         "semestar" : null,
         "pocetak" : "15:15", 
         "kraj" : "15:30", 
-        "naziv" : "1-15", 
+        "naziv" : "1-11", 
         "ime" : "Test",
         "prezime" : "Test",
         "uloga" : "demon",//nepostojeca uloga
@@ -242,6 +290,7 @@ describe('Pozivi', function() {
         //data: JSON.stringify(jsonObj),
         data: JSON.stringify(nepostojecaUloga),
         dataType: 'json',
+        async : false,
         success: function(data, status, xhr){
           assert.equal("a", "b", 'Greska');
         },
@@ -253,348 +302,140 @@ describe('Pozivi', function() {
         url: 'http://localhost:8080/json'
       });
     });
-
-
-
-
-
-
-
-
-
-
-
   });
 
+  describe('Preklapanje zauzeca', function() {
+    it('Vanredno na isti dan kao drugo vanredno', function() {
+      let text = "Nije moguće rezervisati salu 1-15 za navedeni datum " +
+      "29/2/2020 i termin od 15:40 do 16:00! Salu je zauzeo asistent Test Test.";
+      let vanredno = {
+        "dan" : null, 
+        "datum" : "29.02.2020", 
+        "semestar" : null,
+        "pocetak" : "15:40", 
+        "kraj" : "16:00", 
+        "naziv" : "1-15", 
+        "ime" : "Neko",
+        "prezime" : "Nekic",
+        "uloga" : "profesor",
+        "redovni" : false
+      };
+      $.ajax({
+        contentType: 'application/json',
+        //data: JSON.stringify(jsonObj),
+        data: JSON.stringify(vanredno),
+        dataType: 'json',
+        async : false,
+        success: function(data, status, xhr){
+          assert.equal("a", "b", 'Greska');
+        },
+        error: function(data, status, xhr){
+          assert.equal(data.responseText, text, 'Zauzece nije dodano');
+        },
+        processData: false,
+        type: 'POST',
+        url: 'http://localhost:8080/json'
+      });
+    });
 
+    it('Redovno na isti dan kao drugo redovno', function() {
+      let text = "Nije moguće rezervisati salu 1-11 za navedeni datum " +
+      "2/12/2019 i termin od 15:00 do 15:40! Salu je zauzeo asistent Test Test.";
+      let redovno = {
+        "dan" : 0, 
+        "datum" : "02.12.2019",
+        "semestar" : "zimski",
+        "pocetak" : "15:00", 
+        "kraj" : "15:40", 
+        "naziv" : "1-11", 
+        "ime" : "Neko",
+        "prezime" : "Nekic",
+        "uloga" : "profesor",
+        "redovni" : true
+      };
+      $.ajax({
+        contentType: 'application/json',
+        //data: JSON.stringify(jsonObj),
+        data: JSON.stringify(redovno),
+        dataType: 'json',
+        async : false,
+        success: function(data, status, xhr){
+          assert.equal("a", "b", 'Greska');
+        },
+        error: function(data, status, xhr){
+          assert.equal(data.responseText, text, 'Zauzece nije dodano');
+        },
+        processData: false,
+        type: 'POST',
+        url: 'http://localhost:8080/json'
+      });
+    });
+
+    it('Redovno se preklapa sa vanrednim', function() {
+      let text = "Nije moguće rezervisati salu 1-15 za navedeni datum " +
+      "29/2/2020 i termin od 14:00 do 18:00! Salu je zauzeo asistent Test Test.";
+      let redovno = {
+        "dan" : 5, 
+        "datum" : "29.02.2020",
+        "semestar" : "ljetni",
+        "pocetak" : "14:00", 
+        "kraj" : "18:00", 
+        "naziv" : "1-15", 
+        "ime" : "Neko",
+        "prezime" : "Nekic",
+        "uloga" : "profesor",
+        "redovni" : true
+      };
+      $.ajax({
+        contentType: 'application/json',
+        //data: JSON.stringify(jsonObj),
+        data: JSON.stringify(redovno),
+        dataType: 'json',
+        async : false,
+        success: function(data, status, xhr){
+          assert.equal("a", "b", 'Greska');
+        },
+        error: function(data, status, xhr){
+          assert.equal(data.responseText, text, 'Zauzece nije dodano');
+        },
+        processData: false,
+        type: 'POST',
+        url: 'http://localhost:8080/json'
+      });
+    });
+
+    it('Vanredno se preklapa sa redovnim', function() {
+      let text = "Nije moguće rezervisati salu 1-11 za navedeni datum " +
+      "11/11/2019 i termin od 13:35 do 13:45! Salu je zauzeo asistent Test Test.";
+      let vanredno = {
+        "dan" : 0, 
+        "datum" : "11.11.2019", 
+        "semestar" : null,
+        "pocetak" : "13:35", 
+        "kraj" : "13:45", 
+        "naziv" : "1-11", 
+        "ime" : "Neko",
+        "prezime" : "Nekic",
+        "uloga" : "profesor",
+        "redovni" : false
+      };
+      $.ajax({
+        contentType: 'application/json',
+        //data: JSON.stringify(jsonObj),
+        data: JSON.stringify(vanredno),
+        dataType: 'json',
+        async : false,
+        success: function(data, status, xhr){
+          assert.equal("a", "b", 'Greska');
+        },
+        error: function(data, status, xhr){
+          console.log(data.responseText);
+          assert.equal(data.responseText, text, 'Zauzece nije dodano');
+        },
+        processData: false,
+        type: 'POST',
+        url: 'http://localhost:8080/json'
+      });
+    });
+  }); 
 });
-
-/*
-describe('Pozivi', function() {
-  describe('dajZauzecaJSON()', function() {
-  
-   it('Broj dana treba biti 30 za april', function() {
-     let json = Pozivi.dajZauzecaJSON();
-     let dani = document.getElementsByClassName('dayWrapper');
-     let brojDana = dani.length;
-     assert.equal(brojDana, 30,'Broj dana je 30');
-   });
-/*
-   it('Broj dana treba biti 31 za decembar', function() {
-     Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 11); 
-     let dani = document.getElementsByClassName('dayWrapper');
-     let brojDana = dani.length;
-     assert.equal(brojDana, 31,'Broj dana je 31');
-   });
-
-   it('Prvi dan treba biti u petak za novembar', function() {
-     Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 10); 
-     let grid = document.querySelector('.dateGrid').childNodes;
-     let brojFakeDivs = 0;
-     for (let i = 0; i < grid.length - 1; i++) {
-       if(grid[i].className == 'fake') {
-        brojFakeDivs++;
-       }
-     }
-     assert.equal(brojFakeDivs, 4,'Petak je prvi dan');
-   });
-
-   it('Zadnji dan treba biti u subotu za novembar', function() {
-     Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 10); 
-     let grid = document.querySelector('.dateGrid').childNodes;
-     //ukupni broj divs fake i datum  % 7 == index zadnjeg tj. subote
-     assert.equal((grid.length)%7, 6,'Subota je zadnji dan'); 
-   });
-
-   it('Prvi dan treba biti u utorak za januar', function() {
-     Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 0); 
-     let grid = document.querySelector('.dateGrid').childNodes;
-     let brojFakeDivs = 0;
-     for (let i = 0; i < grid.length - 1; i++) {
-       if(grid[i].className == 'fake') {
-        brojFakeDivs++;
-       }
-     }
-     assert.equal(brojFakeDivs, 1,'Utorak je prvi dan');
-     //provjera jesu li dani od 1 do 31
-     let brojevi = document.querySelectorAll('.buttonDiv button time');
-     for (let i = 1; i <= 31; i++) {
-        assert.equal(brojevi[i-1].innerHTML, i,'isti redni broj dana');
-     }
-     console.log(brojevi.length);
-   });
-
-   it('Nazivi mjeseca su od januara do decembra', function() {
-    let months = ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Juni', 'Juli', 'August', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'];
-     Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 0); 
-     for (let i = 0; i < 12; i++) {
-      Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), i); 
-      assert.equal(document.querySelector('.monthIndicator time').innerHTML, months[i],'Korektan naziv mjesec');
-     }
-   });
-
-   it('Broj dana treba biti 28 za februar', function() {
-     Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 1);
-     let dani = document.getElementsByClassName('dayWrapper');
-     let brojDana = dani.length;
-     assert.equal(brojDana, 28,'Broj dana je 28');
-   });
-*/
-/*
-//oboji zauzeca tests
- describe('obojiZauzeca()', function() {
-      it('Sale nisu obojene bez ucitavanja podataka', function() {
-        Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 10);
-        let brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 30, 'Broj slobodnih dana za salu A1 je 30');
-        Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), 10, 'A1', '09:00', '12:00');
-        brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 30, 'Broj slobodnih dana za salu A1 je 30'); //nije se nista promijenilo
-      });
-
-      it('Duple vrijednosti su obojene isto', function() {
-        let redovna = [
-          {dan: 2, semestar: 'Zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 2, semestar: 'Zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 2, semestar: 'Zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 1, semestar: 'Zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 1, semestar: 'Zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'}
-        ];
-        let vanredna = [
-          {datum: '02.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'}
-        ];
-
-        Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 10);
-
-        let brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 30, 'Broj slobodnih dana za salu A1 je 30');
-
-        Kalendar.ucitajPodatke(redovna, vanredna);
-        Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), 10, 'A1', '15:00', '16:00');
-        brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 20, 'Broj slobodnih dana za salu A1 je 20');
-      });
-
-      //ljetni semestar
-      it('Zauzeca za ljetni semestar nisu prikazana u zimskom semestru', function() {
-        let redovna = [
-          {dan: 2, semestar: 'Ljetni', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 2, semestar: 'Ljetni', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 2, semestar: 'Ljetni', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 1, semestar: 'Ljetni', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 1, semestar: 'Ljetni', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'}
-        ];
-        let vanredna = [
-          {datum: '02.04.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.04.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'}
-        ];
-
-        Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 10);
-
-        let brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 30, 'Broj slobodnih dana za salu A1 je 30');
-
-        Kalendar.ucitajPodatke(redovna, vanredna);
-        Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), 10, 'A1', '15:00', '16:00');
-        brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 30, 'Broj slobodnih dana za salu A1 je 30'); //nije se nista promijenilo
-      });
-
-      //zimski semestar
-      it('Zauzeca za zimski semestar nisu prikazana u ljetnom semestru', function() {
-        let redovna = [
-          {dan: 2, semestar: 'zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 2, semestar: 'zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 2, semestar: 'zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 1, semestar: 'zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 1, semestar: 'zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-        ];
-        let vanredna = [
-          {datum: '02.04.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.04.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'}
-        ];
-
-        Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 4);
-
-        let brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 31, 'Broj slobodnih dana za salu A1 je 31');
-
-        Kalendar.ucitajPodatke(redovna, vanredna);
-        Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), 4, 'A1', '15:00', '16:00');
-        brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 31, 'Broj slobodnih dana za salu A1 je 31'); //nije se nista promijenilo
-      });
-
-      it('Zauzeca za druge mjesece nisu prikaza za trenutni mjesec', function() {
-        let redovna = [];
-        let vanredna = [
-          {datum: '09.02.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.03.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '02.04.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.05.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.06.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.07.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.08.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.09.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.10.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.12.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'}
-        ];
-
-        Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 0); //nema zauzeca u januaru
-
-        let brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 31, 'Broj slobodnih dana za salu A1 je 31');
-
-        Kalendar.ucitajPodatke(redovna, vanredna);
-        Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), 0, 'A1', '15:00', '16:00');
-        brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 31, 'Broj slobodnih dana za salu A1 je 31'); //nije se nista promijenilo
-      });
-
-
-      it('Svi termini zauzeti - svi dani obojeni', function() {
-        let redovna = [
-          {dan: 0, semestar: 'Zimski', pocetak: '11:15', kraj: '12:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 1, semestar: 'Zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 2, semestar: 'Zimski', pocetak: '14:00', kraj: '15:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 3, semestar: 'Zimski', pocetak: '15:45', kraj: '16:45', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 4, semestar: 'Zimski', pocetak: '16:30', kraj: '18:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 5, semestar: 'Zimski', pocetak: '12:15', kraj: '13:15', naziv:'A1', predavac: 'Ban Kulin'},  
-          {dan: 6, semestar: 'Zimski', pocetak: '12:15', kraj: '13:15', naziv:'A1', predavac: 'Ban Kulin'}
-        ];
-        let vanredna = [];
-
-        Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 10);
-
-        let brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 30, 'Broj slobodnih dana za salu A1 je 0');
-
-        Kalendar.ucitajPodatke(redovna, vanredna);
-        Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), 10, 'A1', '09:00', '18:00');
-        brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 0, 'Broj slobodnih dana za salu A1 je 0');
-      });
-
-
-
-      it('Uzastopno bojenje - boja ostaje ista', function() {
-        let redovna = [
-          {dan: 0, semestar: 'Ljetni', pocetak: '09:15', kraj: '12:00', naziv:'A2', predavac: 'Ban Kulin'},
-          {dan: 1, semestar: 'Ljetni', pocetak: '15:15', kraj: '16:15', naziv:'A2', predavac: 'Ban Kulin'},
-          {dan: 2, semestar: 'Ljetni', pocetak: '14:00', kraj: '15:00', naziv:'A2', predavac: 'Ban Kulin'},
-          {dan: 3, semestar: 'Ljetni', pocetak: '10:45', kraj: '13:45', naziv:'A2', predavac: 'Ban Kulin'}
-        ];
-        let vanredna = [
-          {datum: '02.05.2019', pocetak: '15:15', kraj: '16:00', naziv:'A2', predavac: 'Ban Kulin'},
-          {datum: '09.05.2019', pocetak: '15:15', kraj: '16:00', naziv:'A2', predavac: 'Ban Kulin'}
-        ];
-
-        Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 4);
-
-        let brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        let brojZauzetih = document.getElementsByClassName('zauzeta').length;
-        assert.equal(brojZauzetih, 0, 'Broj zauzetih za salu A2 je 0');
-
-        Kalendar.ucitajPodatke(redovna, vanredna);
-        for (var i = 10; i > 0; i--) {
-          Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), 4, 'A2', '09:00', '16:00');
-          brojZauzetih = document.getElementsByClassName('zauzeta').length; 
-          assert.equal(brojZauzetih, 18, 'Broj zauzetih za salu A2 je 18');
-
-          brojSlobodnih = document.getElementsByClassName('slobodna').length;
-          assert.equal(brojSlobodnih, 13, 'Broj slobodnih dana za salu A2 je 13');
-        }
-      });
-
-      it('Promjena ucitanih podataka', function() {
-        let redovna = [
-          {dan: 0, semestar: 'Zimski', pocetak: '11:15', kraj: '12:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 1, semestar: 'Zimski', pocetak: '15:15', kraj: '16:15', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 2, semestar: 'Zimski', pocetak: '14:00', kraj: '15:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 3, semestar: 'Zimski', pocetak: '15:45', kraj: '16:45', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 4, semestar: 'Zimski', pocetak: '16:30', kraj: '18:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {dan: 5, semestar: 'Zimski', pocetak: '12:15', kraj: '13:15', naziv:'A1', predavac: 'Ban Kulin'},  
-          {dan: 6, semestar: 'Zimski', pocetak: '12:15', kraj: '13:15', naziv:'A1', predavac: 'Ban Kulin'}
-        ];
-        let vanredna = [];
-
-        Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 10);
-
-        let brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 30, 'Broj slobodnih dana za salu A1 je 0');
-
-        Kalendar.ucitajPodatke(redovna, vanredna);
-        Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), 10, 'A1', '09:00', '18:00');
-        brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 0, 'Broj slobodnih dana za salu A1 je 0');
-
-
-        redovna = [];
-        vanredna = [
-          {datum: '01.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '02.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '03.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '04.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '05.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '06.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '07.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '08.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '09.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '10.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '11.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'}
-        ];
-        Kalendar.ucitajPodatke(redovna, vanredna);
-        Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), 10, 'A1', '09:00', '18:00');
-        brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 19, 'Broj slobodnih dana za salu A1 je 19');
-      });
-
-
-      it('Poklapanje redovnih i vanrednih su obojene isto', function() {
-        let redovna = [
-          {dan: 0, semestar: 'Zimski', pocetak: '11:15', kraj: '12:00', naziv:'A1', predavac: 'Ban Kulin'},
-        ];
-        let vanredna = [
-          {datum: '04.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '11.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '18.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '25.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'}
-        ];
-
-        Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 10);
-
-        let brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 30, 'Broj slobodnih dana za salu A1 je 0');
-
-        Kalendar.ucitajPodatke(redovna, vanredna);
-        Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), 10, 'A1', '09:00', '18:00');
-        brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 26, 'Broj slobodnih dana za salu A1 je 26');
-      });
-
-      it('Poklapanje vanrednih su obojene isto', function() {
-        let redovna = [];
-        let vanredna = [
-          {datum: '04.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '04.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '04.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '17.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '17.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'},
-          {datum: '17.11.2019', pocetak: '15:15', kraj: '16:00', naziv:'A1', predavac: 'Ban Kulin'}
-        ];
-
-        Kalendar.iscrtajKalendar(document.querySelector('.dateGrid'), 10);
-
-        let brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 30, 'Broj slobodnih dana za salu A1 je 0');
-
-        Kalendar.ucitajPodatke(redovna, vanredna);
-        Kalendar.obojiZauzeca(document.querySelector('.dateGrid'), 10, 'A1', '09:00', '18:00');
-        brojSlobodnih = document.getElementsByClassName('slobodna').length;
-        assert.equal(brojSlobodnih, 28, 'Broj slobodnih dana za salu A1 je 28');
-      });
-  });
-  */
-

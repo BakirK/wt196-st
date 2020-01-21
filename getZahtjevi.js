@@ -157,7 +157,10 @@ var getZahtjevi = function() {
 
         let day = +parametri[0];
         dat.setDate(day);
-        
+        if(!day) {
+            callback("Nije poslan datum");
+            return;
+        }
 
         var dan = dat.getDate();
         var currentMonth = dat.getMonth();
@@ -166,6 +169,9 @@ var getZahtjevi = function() {
         var vrijemeKraj = obj.kraj;
         var redniDan = obj.dan;
         var trenutnaSala = obj.naziv;
+        if(!redniDan) {
+            redniDan = (dat.getDay()+6) % 7;
+        }
         for (var i = redovna.length - 1; i >= 0; i--) {
                 let semestar = Semestar(currentMonth);
                 let t1 = redniDan == redovna[i]['dan'];
