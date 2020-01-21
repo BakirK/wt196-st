@@ -25,15 +25,17 @@ var getZahtjevi = function() {
                 }
             ]
         }).then(function(set) {
+            var str = JSON.stringify(set).replace(new RegExp('TerminRez.', 'g'), '').replace(new RegExp('RezervacijaOsobe.', 'g'), '').replace(new RegExp('RezervacijaSala.', 'g'),'');
+            set = JSON.parse(str);
             set.forEach(function(obj) {
                 var datum = new Date();
                 var datumString = datum.toDMY();
-                let time1 = JSON.stringify(obj['TerminRez.pocetak']).replace(/\"/g, "");
-                let time2 = JSON.stringify(obj['TerminRez.kraj']).replace(/\"/g, "");
+                let time1 = JSON.stringify(obj.pocetak).replace(/\"/g, "");
+                let time2 = JSON.stringify(obj.kraj).replace(/\"/g, "");
                 let pocetniDatum = Date.parse('01/01/2011 ' + time1);
                 let krajnjiDatum = Date.parse('01/01/2011 ' + time2); 
                 if(obj.datum !== null) {
-                    var istiDatum = ((datum.getDay() + 6)%7) == obj.dan;
+                    var istiDatum = ((datum.getDay() + 6) % 7) == obj.dan;
                 } else {
                     var istiDatumISemestar = (datumString == obj.datum) 
                                             && (Semestar(+datum.getMonth()) == obj.semestar);
@@ -43,10 +45,38 @@ var getZahtjevi = function() {
                 if(!(datum>=pocetniDatum && datum<=krajnjiDatum) && !istiDatumISemestar) {
                     obj.naziv = "kancelarija";
                 }
-                
             });
-            callback(set);
+            const kancelar = "kancelarija"
+            var temp = set.reduce(function(acc, item) {
+                let str = dajIme(item);
+                if(acc[str]) {
+                    if(item.naziv != kancelar) {
+                        acc[dajIme(item)] = item;
+                    }
+                } else {
+                    acc[dajIme(item)] = item;
+                }
+                return acc;
+            }, {});
+            let make_array = Object.keys(temp).map(key => {
+                let el = temp[key];
+             return { 
+                pocetak: el.pocetak, 
+                kraj: el.kraj, 
+                dan: el.dan, 
+                datum: el.datum, 
+                naziv: el.naziv, 
+                ime: el.ime, 
+                prezime: el.prezime, 
+                uloga: el.uloga
+             }
+            });
+
+            callback(make_array);
         })
+    }
+    function dajIme(obj) {
+        return obj.uloga + " " + obj.ime + " " + obj.prezime;
     }
     var getZauzecaImpl = function(db, callback) {
         var redovna = [], vanredna = [], sva = {};

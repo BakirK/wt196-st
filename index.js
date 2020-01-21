@@ -197,7 +197,7 @@ app.get("/osoblje", function(req, res) {
 app.get("/mjestoOsoblja", function(req, res) {
     getZahtjevi.getMjestaOsoblja(db, function(str) {
         res.writeHead(200, {'Content-Type': 'application/json'});
-        res.write(JSON.stringify(str).replace(new RegExp('TerminRez.', 'g'), '').replace(new RegExp('RezervacijaOsobe.', 'g'), '').replace(new RegExp('RezervacijaSala.', 'g'),''));
+        res.write(JSON.stringify(str));
         res.send();
     });
 })
