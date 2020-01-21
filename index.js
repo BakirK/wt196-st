@@ -30,6 +30,9 @@ app.get("/unos.html",function(req,res){
 app.get("/osobe.html",function(req,res){
     res.sendFile(__dirname+"/html/osobe.html");
 });
+app.get("/testoviS4.html",function(req,res){
+    res.sendFile(__dirname+"/html/testoviS4.html");
+});
 
 
 //css
@@ -70,6 +73,9 @@ app.get("/pocetna.js", function(req,res) {
 });
 app.get("/osobe.js", function(req,res) {
     res.sendFile(__dirname+"/js/osobe.js");
+});
+app.get("/testS4.js", function(req,res) {
+    res.sendFile(__dirname+"/js/testS4.js");
 });
 
 //pics

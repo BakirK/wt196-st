@@ -32,10 +32,8 @@ var Pozivi = (function(){
         if(date1Kraj == date2Kraj) return true;
         return false;
     }
-    function dodajZauzeceImpl(vrijemePocetak, vrijemeKraj, checked, dan, redniDan) {
+    function dodajZauzeceImpl(vrijemePocetak, vrijemeKraj, checked, dan, redniDan, osoba) {
             let date = new Date(currentYear, currentMonth, dan);
-            var e = document.getElementById("osoblje")
-            var osoba = e.options[e.selectedIndex].text;
             let string = osoba.split(" ");
             let ime = string[0];
             let prezime = string[1];

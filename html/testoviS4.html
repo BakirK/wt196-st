@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/rezervacija.css">
+  <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+  <meta name="viewport" content="text/html, initial-scale=1.0">
+  <meta charset="utf-8">
+</head>
+  <body>
+    <div id="ff" class="flex">
+      <div class="okvir">
+        <div id="mocha"></div>
+      </div>
+    </div>
+    
+
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+   
+    <script class="mocha-init">
+      mocha.setup('bdd');
+      mocha.checkLeaks();
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://localhost:8080/pozivi.js"></script>
+    <script src="http://localhost:8080/kalendar.js"></script>
+    <script src="http://localhost:8080/testS4.js"></script>
+    <script class="mocha-exec">
+      mocha.run();
+    </script>
+  </body>
+</html>

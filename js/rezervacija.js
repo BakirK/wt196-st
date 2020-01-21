@@ -77,7 +77,9 @@ function dodajListener() {
                 let vrijemePocetak = pocetakVrijeme.value.toString();
                 let vrijemeKraj = krajVrijeme.value.toString();
                 let checked = $('#tick').is(':checked');
-                let temp = Pozivi.dodajZauzece(vrijemePocetak, vrijemeKraj, checked, dan, redniDan-1);
+                var e = document.getElementById("osoblje");
+                var osoba = e.options[e.selectedIndex].text;
+                let temp = Pozivi.dodajZauzece(vrijemePocetak, vrijemeKraj, checked, dan, redniDan-1, osoba);
                 if(temp) alert(temp);
                 ucitajJSONPodatke();
                 obojiPrviPut();
